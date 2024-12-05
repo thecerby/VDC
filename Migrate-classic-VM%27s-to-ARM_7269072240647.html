@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Migrate classic VM&#39;s to ARM</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Migrate classic VM&#39;s to ARM
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 24 apr., 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-layout="default" data-local-id="9c2c24b0-b332-47db-8ad0-fc0562740b69" class="confluenceTable"><colgroup><col style="width: 176.0px;"/><col style="width: 583.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Runbook name</strong></p></th><th data-highlight-colour="#ffffff" class="confluenceTh"><p><strong>VM Migration</strong></p></th></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Runbook description</strong></p></td><td class="confluenceTd"><p>Migrating classic VM’s to ARM template</p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Owner</strong></p></td><td class="confluenceTd"><p><a class="confluence-userlink user-mention" data-account-id="557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8" href="https://sowedo.atlassian.net/wiki/people/557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8?ref=confluence" target="_blank" data-linked-resource-id="33295" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://sowedo.atlassian.net/wiki">Stephan Oomen</a> </p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Version</strong></p></td><td class="confluenceTd"><p>0.1</p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Version date</strong></p></td><td class="confluenceTd"><p><time datetime="2023-04-24" class="date-past">24 apr. 2023</time> </p></td></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>On this page</strong></p></td><td class="confluenceTd"><div class='toc-macro'><a href='#MigrateclassicVM&#39;stoARM-Architecture'>🏛 Architecture</a> | <a href='#MigrateclassicVM&#39;stoARM-Process'>🎢 Process</a></div></td></tr></tbody></table></div><p /><h2 id="MigrateclassicVM&#39;stoARM-Architecture"><img class="emoticon emoticon-blue-star" data-emoji-id="1f3db" data-emoji-shortname=":classical_building:" data-emoji-fallback="🏛" src="images/icons/emoticons/72/1f3db.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Architecture</h2><p>Azure Classic VM’s will be discontinued starting September 25th. This means that the VM’s will be shut down and deallocated. In the scope of this project, we need to focus on the VM’s.</p><ul><li><p>VDC-PROD-SQL</p></li><li><p>VDC-PROD-WEB</p></li><li><p>VDC-PROD-PORTALS</p></li></ul><p>See diagram below what is connected to the VMs</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7269072240647/7269071978589.png" data-image-src="attachments/7269072240647/7269071978589.png" data-height="761" data-width="1396" data-unresolved-comment-count="0" data-linked-resource-id="7269071978589" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20230424-071306.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7269072240647" data-linked-resource-container-version="2" data-media-id="c40cbbe6-1113-482e-a4c3-b2df04800abc" data-media-type="file"></span><h2 id="MigrateclassicVM&#39;stoARM-Process"><img class="emoticon emoticon-blue-star" data-emoji-id="1f3a2" data-emoji-shortname=":roller_coaster:" data-emoji-fallback="🎢" src="images/icons/emoticons/72/1f3a2.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Process</h2><p>Microsoft provided support for preparing migrations to ARM, the below instructions will make sure that the VM’s are available.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The following breaking changes will apply;</p><ul><li><p>Public IP address will change</p></li></ul></div></div><div class="table-wrap"><table data-layout="full-width" data-local-id="2b2c5e08-9194-49bb-8f92-53797680aa34" class="confluenceTable"><colgroup><col/><col style="width: 623.0px;"/><col style="width: 149.0px;"/><col style="width: 271.0px;"/><col style="width: 634.0px;"/></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th class="confluenceTh"><p><strong>Step instructions</strong></p></th><th class="confluenceTh"><p><strong>Duration</strong></p></th><th class="confluenceTh"><p><strong>Run conditions</strong></p></th><th class="confluenceTh"><p><strong>Upgrade to SIze</strong></p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p>Create NSG’s for each environment</p></td><td class="confluenceTd"><p>1h</p></td><td class="confluenceTd"><p>N/A</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p>*Migrate SQL Server</p></td><td class="confluenceTd"><p>30m-1h</p></td><td class="confluenceTd"><p>N/A</p></td><td class="confluenceTd"><p>From: A3 ($241.06, 4CPU, 7GB, 300iops), to: A4 V2 (203.86)</p></td></tr><tr><td class="numberingColumn confluenceTd">3</td><td class="confluenceTd"><p>Test SQL connection for web applications</p></td><td class="confluenceTd"><p>30m-1h</p></td><td class="confluenceTd"><p>SQL must be running</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">4</td><td class="confluenceTd"><p>Test reporting connectino for web applications</p></td><td class="confluenceTd"><p>30m</p></td><td class="confluenceTd"><p>SQL reporting must be running</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">5</td><td class="confluenceTd"><p>*Migrate PORTAL server</p></td><td class="confluenceTd"><p>30m-1h</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">6</td><td class="confluenceTd"><p>Test connection to endpoints</p></td><td class="confluenceTd"><p>15m</p></td><td class="confluenceTd"><p>Portal server must be running</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">7</td><td class="confluenceTd"><p>Start mail portals</p></td><td class="confluenceTd"><p>15m</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">8</td><td class="confluenceTd"><p>Start mail process</p></td><td class="confluenceTd"><p>5m</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">9</td><td class="confluenceTd"><p>Start BatchRoutines</p></td><td class="confluenceTd"><p>5m</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">10</td><td class="confluenceTd"><p>*Migrate WEB server</p></td><td class="confluenceTd"><p>30m-1h</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">11</td><td class="confluenceTd"><p>Test connection to RegistratieXpert</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">12</td><td class="confluenceTd"><p>Test</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="numberingColumn confluenceTd">13</td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p>*For each VM we need to follow the below instructions:</p><ol start="1"><li><p>Make Public IP static (can be prepared)</p></li><li><p>Create NSG for endpoints (can be prepared)</p></li><li><p>Remove BGInfo extension</p></li><li><p>Remove ip-restricted endpoints from VM</p></li><li><p>Start migration</p></li><li><p>Associate public IP to PrimaryNic</p></li><li><p>Set Public IP to static</p></li><li><p>Remove load balancer</p></li><li><p>Migrate to managed disks</p></li><li><p>Upgrade Size</p></li><li><p>Change connection to other VM to …registratiexpert.net</p></li></ol><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269072240647/7269072273420.png">image-20211201-143323.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269072240647/7269071978589.png">image-20230424-071306.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

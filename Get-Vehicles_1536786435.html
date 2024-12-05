@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Get Vehicles</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Vehicle-APIs_1536589849.html">Vehicle APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Get Vehicles
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 23 aug., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>For using this api, you need to be authorized as a Tenant</p></div></div><p>You can retrieve vehicles by using the following information:</p><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 340.0px;"/><col style="width: 340.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/Vehicle​/GetVehicles</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-complete">GET</span> </p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Token <code>{token from Authorized Tenant}</code></p></td></tr></tbody></table></div><p /><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;statuses&quot;: [1,2...],
+  &quot;orderTypes&quot;: [1,2...],
+  &quot;creationDateStart&quot;: &quot;2021-01-01&quot;,
+  &quot;creationDateEnd&quot;: &quot;2021-12-31&quot;,
+  &quot;filter&quot;: &quot;&quot;,
+  &quot;sorting&quot;: &quot;&quot;,
+  &quot;maxResultCount&quot;: 10,
+  &quot;skipCount&quot;: 0
+}</pre>
+</div></div><p><strong>Output</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;totalCount&quot;: 0,
+  &quot;items&quot;: [
+    {
+      &quot;licensePlate&quot;: &quot;string&quot;,
+      &quot;brandType&quot;: &quot;string&quot;,
+      &quot;creationTime&quot;: &quot;2021-08-23T11:58:30.444Z&quot;,
+      &quot;brand&quot;: &quot;string&quot;,
+      &quot;vehicleTestingRegulationsExpirationDate&quot;: &quot;2021-08-23T11:58:30.444Z&quot;,
+      &quot;importAmountRequestRefund&quot;: 0,
+      &quot;bpm&quot;: {
+        &quot;grossAmount&quot;: 0,
+        &quot;possibleNetAmount&quot;: 0,
+        &quot;bpmExpirationDate&quot;: &quot;2021-08-23T11:58:30.444Z&quot;,
+        &quot;netAmountAfterExpiration&quot;: 0
+      },
+      &quot;soldOn&quot;: &quot;2021-08-23T11:58:30.444Z&quot;,
+      &quot;orderType&quot;: 0,
+      &quot;status&quot;: 0,
+      &quot;licensePlateReceivedOn&quot;: &quot;2021-08-23T11:58:30.444Z&quot;,
+      &quot;exportRegisteredForeignCountryDate&quot;: &quot;2021-08-23T11:58:30.444Z&quot;,
+      &quot;id&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
+    }
+  ]
+}</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

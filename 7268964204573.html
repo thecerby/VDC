@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Could not create SSL/TLS secure channel.</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to-articles_7268936286209.html">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Could not create SSL/TLS secure channel.
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 04 jul., 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>It can happen that customers of VDC gets the following error;</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268964204573/7268964204580.png" data-image-src="attachments/7268964204573/7268964204580.png" data-height="503" data-width="446" data-unresolved-comment-count="0" data-linked-resource-id="7268964204580" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-140330.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268964204573" data-linked-resource-container-version="1" data-media-id="88be4638-9e56-4ce1-ae2f-0b63325b3ebb" data-media-type="file"></span><p>This can happen based on the following things;</p><ol><li><p>RDW certificate is expired</p></li><li><p>Connection to A2SP is not working correctly</p></li></ol><p>The below instructions will check and resolve <code>RDW certificate is expired</code> </p><p>You’ll need to know the following things;</p><ul><li><p>What is the tenant name and/or tenant Id</p></li></ul><h2 id="CouldnotcreateSSL/TLSsecurechannel.-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p><strong>Getting the thumbprint of the current certificate;</strong></p><ol><li><p>Log into <a class="external-link" data-card-appearance="inline" href="http://registratiexpert.nl" rel="nofollow">http://registratiexpert.nl</a>  and go to <code>tenants</code> </p></li><li><p>Search for the tenant and click on <code>Acties</code> =&gt; <code>Details</code></p></li><li><p>Navigate to tab <code>RDW</code> and copy the value <code>RdwCertificaatThumbprint</code></p></li></ol><p><strong>Searching the certificate </strong></p><ol><li><p>Connect via RDP on <code>VDC-PRD-WEB</code> which is found in <a class="external-link" href="http://access.mplus.nl" rel="nofollow">access.mplus.nl</a> </p></li><li><p>In the machine, open up <code>mmc.exe</code> and add the snap-in <code>Certificates</code> for <code>local computer</code><br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268964204573/7268964204590.png" data-image-src="attachments/7268964204573/7268964204590.png" data-height="203" data-width="302" data-unresolved-comment-count="0" data-linked-resource-id="7268964204590" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-140803.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268964204573" data-linked-resource-container-version="1" data-media-id="0458a71d-581b-4ca4-ba2a-c6ad40e12521" data-media-type="file"></span></li><li><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268964204573/7268964401185.png" data-image-src="attachments/7268964204573/7268964401185.png" data-height="201" data-width="285" data-unresolved-comment-count="0" data-linked-resource-id="7268964401185" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-140817.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268964204573" data-linked-resource-container-version="1" data-media-id="020f2b6f-eae6-4829-8ff6-b9ddb3ea9275" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268964204573/7268964139031.png" data-image-src="attachments/7268964204573/7268964139031.png" data-height="161" data-width="530" data-unresolved-comment-count="0" data-linked-resource-id="7268964139031" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-140826.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268964204573" data-linked-resource-container-version="1" data-media-id="0a719a9f-7c2e-4a27-a21f-91d4c05b7971" data-media-type="file"></span><p>Rightclick on “Certificates” and click on <code>Find Certificates</code></p></li><li><p>Fill in the thumbprint value in the <code>Contains</code> field and look in field <code>SHA1 Hash</code></p></li><li><p>Check if the expiration date is expired.</p></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You can double click the certificate and it will show as expired if that is the case.</p></div></div><p><strong>The certificate is expired? Follow below;</strong></p><p>Now you know the certificate is expired and you need to install the new one, connect with VDC to get the new certificate.</p><p><strong>Install the certificate</strong></p><p>Copy the pfx file towards the webserver </p><ol><li><p>and double click the file.</p></li><li><p>Choose <code>Local Machine</code> and click ‘Next’</p></li><li><p>Click next</p></li><li><p>Specify the password and check “Mark this key as exportable”<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268964204573/7268964335633.png" data-image-src="attachments/7268964204573/7268964335633.png" data-height="256" data-width="463" data-unresolved-comment-count="0" data-linked-resource-id="7268964335633" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220704-141547.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268964204573" data-linked-resource-container-version="1" data-media-id="29dbb412-4c15-4966-aa75-8020f1dd90cf" data-media-type="file"></span></li><li><p>Click next and install.</p></li></ol><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>Password is invalid? Double-check the characters, it could be that there is a mismatch, otherwise connect with VDC</p>
+</div></div><p /><ol><li><p>Follow the steps of <strong>Searching the certificate </strong>and look for the certificate by looking into the <code>Personal</code> =&gt; <code>Certificates</code> folder.</p></li><li><p>Open up the certificate and go to <code>Details</code></p></li><li><p>Search for field <code>Thumbprint</code> and copy the value.</p></li><li><p>Put this value into notepad++, remove alle whitespaces and a ‘hidden’ character at the start.</p></li><li><p>Place the new thumbprint value into the details section and save the changes.</p></li><li><p>Let VDC ask to check the application again if it is working.</p></li></ol><h2 id="CouldnotcreateSSL/TLSsecurechannel.-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204560" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/VDC/pages/7268964204560/Deploy+RegistratieXpert+changes+to+environment">Deploy RegistratieXpert changes to [environment]</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7269000675332" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7269000675332/Fix+BPM+set+on+vehicle">Fix BPM set on vehicle</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204573" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268964204573/Could+not+create+SSL+TLS+secure+channel.">Could not create SSL/TLS secure channel.</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268936056833" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268936056833/Mail+is+not+being+sent">Mail is not being sent</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268907516136" data-linked-resource-type="page" data-linked-resource-version="12" href="/wiki/spaces/VDC/pages/7268907516136/OrbServiceTest+uitleg">OrbServiceTest uitleg</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268964204573/7268964204580.png">image-20220704-140330.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268964204573/7268964204590.png">image-20220704-140803.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268964204573/7268964401185.png">image-20220704-140817.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268964204573/7268964139031.png">image-20220704-140826.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268964204573/7268964335633.png">image-20220704-141547.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

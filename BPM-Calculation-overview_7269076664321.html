@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : BPM Calculation overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="BPM-request-flow_7268926980287.html">BPM request flow</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : BPM Calculation overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 24 jul., 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-layout="full-width" data-local-id="d6f22920-775a-4665-a624-61ff4f1f379c" class="confluenceTable"><colgroup><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Column</strong></p></th><th class="confluenceTh"><p><strong>Calculation</strong></p></th><th class="confluenceTh"><p><strong>Translation Key</strong></p></th><th class="confluenceTh"><p><strong>Translated value</strong></p></th></tr><tr><td class="confluenceTd"><p>bpm3a</p></td><td class="confluenceTd"><p>bpm amount</p></td><td class="confluenceTd"><p>VehicleBpmPayedAmount</p></td><td class="confluenceTd"><p>Betaald bedrag aan BPM</p></td></tr><tr><td class="confluenceTd"><p>fixedDeprepciation</p></td><td class="confluenceTd"><p>depreciation of bpm amount when import</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Forfataire afschrijving van BPM</p></td></tr><tr><td class="confluenceTd"><p>bpm3b</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p>VehicleBpmReceivedAmoundEarlier</p></td><td class="confluenceTd"><p>Bedrag van eventuele eerdere teruggaven</p></td></tr><tr><td class="confluenceTd"><p>bpm3c</p></td><td class="confluenceTd"><p>0</p></td><td class="confluenceTd"><p>VehicleBpmPayedLater</p></td><td class="confluenceTd"><p>Bedrag van eventueel later betaalde bpm</p></td></tr><tr><td class="confluenceTd"><p>bpm3d</p></td><td class="confluenceTd"><p>bpm3a - fixedDeprepciation - bpm3b + bpm3c</p></td><td class="confluenceTd"><p>VehicleBpmBalancePayed</p></td><td class="confluenceTd"><p>Saldo van betaalde BPM</p></td></tr><tr><td class="confluenceTd"><p>bpm3e</p></td><td class="confluenceTd"><p><code>REST BPM</code> - 0.5</p></td><td class="confluenceTd"><p>VehicleBpmAmountSubtracted</p></td><td class="confluenceTd"><p>Bedrag van vermindering</p></td></tr><tr><td class="confluenceTd"><p>bpm3f</p></td><td class="confluenceTd"><p>bpm3d - bpm3e</p></td><td class="confluenceTd"><p>VehicleBpmAmountRequested</p></td><td class="confluenceTd"><p>Bedrag dat u terugvraagt</p></td></tr></tbody></table></div><h2 id="BPMCalculationoverview-Calculatepercentage"><strong>Calculate </strong><code>percentage</code></h2><p>For getting the percentage, you first need to define what period it is.</p><p>In the BPM request document you will have 2 periods you need to go through;</p><ol start="1"><li><p>Fixed Depreciation (Forfaitaire afschrijving)</p></li><li><p>Rest BPM (BPM vermindering)</p></li></ol><p>Based on the amount of months the corresponding percentage will be used.<br/>There are currently 2 tables in use:</p><ul><li><p>2022 (all before before July 2023, since 2022 has not been changed since 2012)<br/><em>VehicleBpmCalculationTable2022</em></p></li><li><p>July 2023<br/><em>VehicleBpmCalculationTableJuly2023</em></p></li></ul><h3 id="BPMCalculationoverview-1.PercentageforFixedDepreciation">1. Percentage for Fixed Depreciation</h3><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>For Fixed Depreciation we use the table corresponding to the rules defined in the BPM form.<br/><br/><em>Heeft het motorrijtuig een datum van goedkeuring door de RDW (2i) op of na 1 januari 2022? Dan is de forfaitaire afschrijving de afschrijving voor de periode tussen de datum eerste toelating en datum van goedkeuring door de RDW. Is er geen datum van goedkeuring door de RDW (2i) of ligt deze vóór1januari 2022? Dan is de forfaitaire afschrijving de afschrijving voor de periode tussen de datum eerste toelating en de datum eerste tenaamstelling in Nederland.</em><br/><br/>Example: The vehicle is initially allowed on 2019-03-01, approved by the RDW in 2021-05-01 and registered on 2021-04-03<br/>The date 2021-04-03 is used, thus using the table 2022</p><p>Example 2: The vehicle is initially allowed on 2019-03-01, approved by the RDW in 2022-05-01 and registered on 2022-04-03<br/>The date 2022-05-01 is used, thus using the table 2022</p><p>Example 3: The vehicle is initially allowed on 2019-03-01, approved by the RDW in 2023-07-03 and registered on 2023-05-03<br/>The date 2023-07-03 is used, thus using the table July 2023</p></div></div><p>You will calculate the amount of months in difference between allowed and decided date.<br/>With this you can grab the correct rule from the table.</p><h3 id="BPMCalculationoverview-2.PercentageforrestBPM">2. Percentage for rest BPM</h3><p>The same rules apply for the calculation date (Export date) except the start date will be used from the FixedDepreciation.</p><div class="panel" style="background-color: #FFEBE6;border-width: 1px;"><div class="panelContent" style="background-color: #FFEBE6;">
+<p>There is a catch when calculating the percentage between the fixedDepreciation and calculation date.</p><p>You need to go through each month and grab the percentage per month to sum up the total percentage. This is a rule that is not very clear in the document but is provided by the Belastingdienst.</p><p>A sample calculation from the Belastingdienst is provided</p>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If the vehicle’s age older than 2006-10-16, it is not BPM requestable.</p></div></div><p /><h2 id="BPMCalculationoverview-IntheapplicationthereareafewwayscurrentlyavailabletocalculatetheBPM;">In the application there are a few ways currently available to calculate the BPM;</h2><ul><li><p>Use the UI:</p><ul><li><p>Production: <a class="external-link" href="https://vdc-api.registratiexpert.nl/VehicleBpm" rel="nofollow">https://vdc-api.registratiexpert.nl/VehicleBpm</a> </p></li><li><p>UAT: <a class="external-link" href="https://regxpert-api-uat.azurewebsites.net/VehicleBpm" rel="nofollow">https://regxpert-api-uat.azurewebsites.net/VehicleBpm</a> </p></li><li><p>TST: <a class="external-link" href="https://regxpert-api-test.azurewebsites.net/VehicleBpm" rel="nofollow">https://regxpert-api-test.azurewebsites.net/VehicleBpm</a></p></li></ul></li><li><p>Use Swagger: (you need to login first on <a class="external-link" data-card-appearance="inline" href="https://regxpert-api-test.azurewebsites.net/Ui/Login" rel="nofollow">https://regxpert-api-test.azurewebsites.net/Ui/Login</a>  with the admin credentials)</p><ul><li><p><a class="external-link" href="https://vdc-api.registratiexpert.nl/VehicleBpm" rel="nofollow">https://vdc-api.registratiexpert.nl</a><a class="external-link" href="https://regxpert-api-test.azurewebsites.net/swagger/index.html" rel="nofollow">/swagger/index.html</a></p></li><li><p><a class="external-link" href="https://regxpert-api-test.azurewebsites.net/swagger/index.html" rel="nofollow">https://regxpert-api-uat.azurewebsites.net/swagger/index.html</a> </p></li><li><p><a class="external-link" href="https://regxpert-api-test.azurewebsites.net/swagger/index.html" rel="nofollow">https://regxpert-api-test.azurewebsites.net/swagger/index.html</a>  </p></li></ul></li></ul><p>For Swagger, you need to go to <code>VehicleBpmCalculation</code> category and you’ll find 3 endpoints;</p><ul><li><p>Calculate a raw value (same as UI)</p></li><li><p>Calculate existing vehicle, specify the vehicle that needs to be recalculated.</p></li><li><p>Update bpm value (result of calculate existing vehicle)</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269076664321/7269094293533.pdf">Berekening export per 2 juli 2023.pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269076664321/7269094260762.pdf">Aanvraag Bpm Restitutie Juli 2023.pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269076664321/7269094424604.pdf">Aanvraag Bpm Restitutie 2022.pdf</a> (application/pdf)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

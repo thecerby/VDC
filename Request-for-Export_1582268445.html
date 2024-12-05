@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Request for Export</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Vehicle-related-APIs_1536655429.html">Vehicle related APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Request for Export
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kavitha Thangappan</span>, last modified on 11 nov., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Customer who wants to request vehicle for export sends request to this endpoint.</p><p>System validates vehicle , customer , contact person and input parameters using <code>orehvaildator</code>.</p><p>System throws warnings if the validation results fail.</p><p>System checks whether vehicle ordertypeId has value , if so system throws <code>VehicleAlreadyProcessed</code> as user friendly exception.</p><p>System checks Oreh, not Ored features , not OnCompanyStock details and throws exception <code>VehicleNotOnStock</code> when the conditions are true.</p><p>System checks vehicle statusId not in OpenInCompanyStock and throws <code>VehicleAlreadyProcessed</code> exception when the condition is true.</p><p>System checks input parameter value RequestExportlicensePlate as true , then calls insurance manager <code>checkEligibility </code>method by passing customer , contact person details. If the eligibility is not accepted system throws <code> InsuranceCheckEligibilitydeclied</code>exception.</p><p>System calls <code>Rdwservice - RequestForOreh</code> method by passing vehicle , contact person and customer details. If the result is not successful system throws error message.</p><p>System updates vehicle ordertypeId as BpmBasis or BpmDigitaal based on the feature check enabled, Soldby current user, Sold on by current date , CustomerId and authorizationId details.</p><p>System freezes  the vehicle.</p><p>System checks if the insurance check eligibilty is accepted and calls <code>Documentservice - GetGroenKaartNummer </code>method by passing vehicleId . System inserts vehicle document into database with document type <code>GroeneKaart</code>.</p><p>Finally system commits vehicle and customer details into database.</p><p>For using this api, you need to be authorized.</p><p><strong>Authentication</strong></p><p>Please refer to this page. <a class="external-link" href="https://mplusgroup.atlassian.net/wiki/spaces/VDC/pages/edit-v2/1580859442?draftShareId=8afc2d6c-c754-4060-ae7b-bb7dc0f3bab2" rel="nofollow">Authentication APIs - VDC - Confluence (atlassian.net)</a></p><p><strong>Authorization</strong></p><p>This requires api permission <code>Pages_Vehicles_Rdw_RequestExport</code></p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="3f3548ba-6ebc-4a5a-bd9b-c27fdd89df01" class="confluenceTable"><colgroup><col style="width: 256.0px;"/><col style="width: 424.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/VehicleExport/PrepareRequestForExport</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">POST</span></p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Token <code>{token from Authorized User}</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><ul><li><p><code>ExportType</code>- <code>Integer</code>- (required) </p></li><li><p><code>VehicleId</code>- <code>Guid</code>- (required) </p></li><li><p><code>CustomerId</code>- <code>Guid</code>- (required) </p></li><li><p><code>AuthorizationId</code>- <code>Guid</code>- (required) </p></li><li><p><code>RequestLicensePlateCard</code>- <code>Boolean</code>- (required) </p></li><li><p><code>RequestExportLicensePlate</code>- <code>Boolean</code>- (required) </p></li><li><p><code>RequestZollLicensePlate</code>- <code>Boolean</code>- (required) </p></li><li><p><code>laminationCode1</code>- <code>String</code>- (optional) </p></li><li><p><code>laminationCode2</code>- <code>String</code>- (optional) </p></li></ul></td></tr></tbody></table></div><p> </p><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;exportType&quot;: 1,
+  &quot;vehicleId&quot;: &quot;35FC727E-7ECA-4872-8242-350C33FDDC9B&quot;,
+  &quot;customerId&quot;: &quot;7A3292B6-ABBD-4AA4-8B57-0017C6D24C72&quot;,
+  &quot;authorizationId&quot;: &quot;AF081256-6F80-40FF-9D47-32F875E647EF&quot;,
+  &quot;requestLicensePlateCard&quot;: true,
+  &quot;requestExportLicensePlate&quot;: true,
+  &quot;requestZollLicensePlate&quot;: true,
+  &quot;laminationCode1&quot;: &quot;&quot;,
+  &quot;laminationCode2&quot;: &quot;&quot;
+}
+
+</pre>
+</div></div><p><strong>Output</strong></p><p>if request is successful , api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: {
+  &quot;errorMessage&quot;: &quot;&quot;,
+  &quot;registrationDate&quot;: null,
+  &quot;succeeded&quot;: true,
+  &quot;transactionCode&quot;: &quot;TE67&quot;,
+  &quot;processedLicensePlate&quot;: &quot;GT259V&quot;
+},
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null,
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}
+
+</pre>
+</div></div><p> </p><p>if request is unauthorized , api returns below response. Response status <code>403</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;Verplichte rechten zijn niet toegekend. Minimaal één van de volgende rechten dient toegekend te zijn: WA-verzekering&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: true,
+  &quot;__abp&quot;: true
+}
+
+</pre>
+</div></div><p> </p><p> </p><p>if input request is not valid, api returns below response. Response status <code>500</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;[VehicleNotOnStock]&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}
+</pre>
+</div></div><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;[VehicleAlreadyProcessed]&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}</pre>
+</div></div><p /><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;[InsuranceCheckEligibilityDeclined]&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}</pre>
+</div></div><p /><p><br/></p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

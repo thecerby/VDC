@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Upload Entity Document</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Document-APIs_1582694439.html">Document APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Upload Entity Document
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kavitha Thangappan</span> on 11 nov., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Customer who wants to upload existing entity document details sends request to this endpoint.</p><p>If the <code>entity type</code> equals <code>vehicle </code>, system fetches document details from vehicle document repository based on the document id provided as input parameter.</p><p>If the document is not available system throws user exception as <code>DocumentDoesn'tExists</code></p><p>system fetches subdirectory value from contact person repository as identification number if the document id provided is available in the contact person's document list.</p><p>Otherwise it sets subdirectory as license plate from vehicle object.</p><p>System fetches document name from vehicle document repository.</p><p>If the document is not available system throws user exception as <code>DocumentDoesn'tExists</code></p><p>System calls <code>DocumentService - PrepareDocument</code> by passing document Id ,vehicle Id also the subdirectory.</p><p>Then system calls <code>DocumentService - UploadDocument </code>by passing document which is from customer document repository and binary data provided in the input object.</p><p>if the upload is un successful system throws exception as <code>DocumentUploadFailed.</code></p><p /><p>If the <code>entity type</code> equals <code>contact person</code>, system fetches document details from contact person repository.</p><p>If the document is not available system throws user exception as <code>DocumentDoesn'tExists</code></p><p>System calls <code>DocumentService - PrepareDocument</code> by passing document Id ,vehicle Id also the subdirectory.</p><p>Then system calls <code>DocumentService - UploadDocument </code>by passing document which is from customer document repository and binary data provided in the input object.</p><p>if the upload is un successful system throws exception as <code>DocumentUploadFailed.</code></p><p>For using this api, you need to be authorized.</p><p><strong>Authentication</strong></p><p>Please refer to this page. <a class="external-link" href="https://mplusgroup.atlassian.net/wiki/spaces/VDC/pages/edit-v2/1580859442?draftShareId=8afc2d6c-c754-4060-ae7b-bb7dc0f3bab2" rel="nofollow">Authentication APIs - VDC - Confluence (atlassian.net)</a></p><p><strong>Authorization</strong></p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="90797fbb-17c7-42c4-bea2-05140545b8ed" class="confluenceTable"><colgroup><col style="width: 256.0px;"/><col style="width: 424.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/Document/UploadEntityDocument</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">GET</span></p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Token <code>{token from Authorized User}</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><ul><li><p><code>EntityType</code>- <code>string</code>- (required) </p></li><li><p><code>BinaryData</code>- <code>byte[]</code>- (required) </p></li><li><p><code>DocumentId</code>- <code>Integer</code>- (optional) </p></li></ul></td></tr></tbody></table></div><p> </p><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;entityType&quot;: &quot;VehicleDocument&quot;,
+  &quot;documentId&quot;: 1,
+  &quot;binaryData&quot;: &quot;&quot;
+}
+</pre>
+</div></div><p><strong>Output</strong></p><p>if request is successful , api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence"></pre>
+</div></div><p> </p><p>if request is unauthorized , api returns below response. Response status <code>403</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;Verplichte rechten zijn niet toegekend. Minimaal één van de volgende rechten dient toegekend te zijn: WA-verzekering&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: true,
+  &quot;__abp&quot;: true
+}
+
+
+
+</pre>
+</div></div><p> </p><p>if input request is not valid, api returns below response. Response status <code>500</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;Document Doesn&#39;t Exists&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}
+</pre>
+</div></div><p>if input request is not valid, api returns below response. Response status <code>500</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;Document Upload Failed&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}
+</pre>
+</div></div><p><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

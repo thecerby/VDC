@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : OrbServiceTest uitleg</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="A2SP---Test-kentekens_36765697.html">A2SP - Test kentekens</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : OrbServiceTest uitleg
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Enrico Wesseling</span>, last modified on 09 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article i will explaine you how to use OrbServiceTest.</p><p>you will need to run this test every time before you want to run other tests. except for when its mentioned not to do.</p><h2 id="OrbServiceTestuitleg-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p style="margin-left: 30.0px;">In this project we are gonna test OrbServiceTest as prepration for TransferServiceTest.</p><p /><p style="margin-left: 30.0px;">First we are gonna look ad a few lines of code from OrbServiceTest, the lines of code we are gonna change are mention and show down below.</p><p /><p>      The information you will need to make the right changes can you get out of </p><p>      “Test kentekens - VDC” (excel sheet) you will need to use the,</p><p style="margin-left: 30.0px;">“ORB + OREH + ED Kentekencard / tijdelijk documentnummer” from this sheet for the right <span class="legacy-color-text-inverse"> f f f</span>       information.</p><p style="margin-left: 30.0px;">At the bottem of the document there is an excel sheet that you will need to download, otherwise the colums wont match with what im saying.</p><p>       We are gonna work on a 5 lines from this code.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">        {
+            Reference = &quot;Test ORB&quot;,
+            LicensePlate = &quot;GTVD48&quot;,
+            ReportCode = &quot;4548&quot;,
+            //DuplicateCode = &quot;01&quot;,
+            //CharacterCheckLicenseplateRegistration = &quot;Z&quot;,
+            LicensePlateDocumentNumber = &quot;1234512843&quot;,
+            AttendanceCode1 = &quot;1234&quot;,
+            AttendanceCode2 = &quot;56789&quot;,
+            DocumentData = true,
+            WaitForApprovalAcceptance = true,
+            Counter = new VehicleCounter
+            {
+                HasCounter = true,
+                Number = 1001,
+                Unit = RdwVehicleCounterUnit.Kilometers
+            }</pre>
+</div></div><p>The 5 lines underneath here we will need to change.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">            LicensePlate = &quot;GTVD48&quot;,
+            ReportCode = &quot;4548&quot;,
+            LicensePlateDocumentNumber = &quot;1234512843&quot;,
+            AttendanceCode1 = &quot;1234&quot;,
+            AttendanceCode2 = &quot;56789&quot;,</pre>
+</div></div><p>The information you will need to give to these 5 lines have to be the same information that was given to you in Test kentekens - VDC (excel sheet, Chose one row horizontal from second column).</p><p>you can only use one license plate 1 time a day so afther that you will need to change the information you give to the system. But if you have already safed the license plate into the server you can use it more then ones.</p><p /><h2 id="OrbServiceTestuitleg-howtomaketheprogramwork">   how to make the program work</h2><p>  1. You can go ahead and cleared the 5 lines of code, afther that you can go ahead and have a look ad the<span class="legacy-color-text-inverse">  f   f    </span> excel sheet, as i mentioned earlier you will have to choose a row from the horizontal side and aline the<span class="legacy-color-text-inverse"> f f f     </span>information that is given to you in the excel sheet and the lines of code that you have seen in this<span class="legacy-color-text-inverse"> f f f f f f f    </span> document.</p><p /><p>  2. If you filled in those 5 lines with the right information you can go and run the test.</p><p>  </p><p>  4. If the test is runned and there is a green ball the test works and you can go ahead and go to   <span class="legacy-color-text-inverse">f  f  f  f  f   f f</span>    TransferServiceTest. If there is a red ball the test failed.</p><p>    </p><h2 id="OrbServiceTestuitleg-possiblethingsthatcouldhavegonewrongifyouretestfailed.">   possible things that could have gone wrong if youre test failed.</h2><p>    If you hafe a green ball you can skip this part and go on to TransferServiceTest.</p><p>    If you hafe a red ball you can read this for an option to make it work. </p><p>    Im gonna give a few options to check if you did something wrong.</p><p>    1. Did you give the exacte same information in OrbServiceTest as there in the excel sheet.</p><p>    2. Did you check if there are some missing lines or code or somewhere else or if something else changed. </p><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>REMEMBER. You can only use a licensplate max 1 time a day, every night it will reset, but if the licence plate is already saved in the server then you can use it more often.</p></div></div><h2 id="OrbServiceTestuitleg-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p> <a href="TransferServiceTest-uitleg_7268907483337.html" data-linked-resource-id="7268907483337" data-linked-resource-version="5" data-linked-resource-type="page">TransferServiceTest uitleg</a> , Test kentekens - VDC (excel sheet)</p><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/7268907516136/7268907385181.xlsx" data-nice-type="Microsoft Excel Spreadsheet" data-file-src="/wiki/download/attachments/7268907516136/Test%20kentekens%20-%20VDC.xlsx?version=1&amp;modificationDate=1638804070270&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="7268907385181" data-linked-resource-type="attachment" data-linked-resource-container-id="7268907516136" data-linked-resource-default-alias="Test kentekens - VDC.xlsx" data-mime-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="cdf219fa-03b3-41df-9261-d84f34b32eb5" data-media-type="file"><img src="attachments/thumbnails/7268907516136/7268907385181" height="250"/></a></span></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268907516136/7268907385181.xlsx">Test kentekens - VDC.xlsx</a> (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

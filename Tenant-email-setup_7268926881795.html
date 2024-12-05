@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Tenant email setup</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Tenant email setup
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 22 feb., 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In order to enable mail support for a tenant, the following things needs to be taken care of:</p><ol><li><p>Configure settings for the tenant</p></li><li><p>Configure mail portal in Portal Server</p></li><li><p>Enable feature/permissions in the backoffice.</p></li></ol><h2 id="Tenantemailsetup-Configuresettingsforthetenant">Configure settings for the tenant</h2><p>For configuring the settings you require the following information for the following type of settings:</p><div class="table-wrap"><table data-layout="default" data-local-id="930415d1-0d67-4418-8f44-e475a9f1198b" class="confluenceTable"><colgroup><col style="width: 52.0px;"/><col style="width: 183.0px;"/><col style="width: 424.0px;"/><col style="width: 101.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p /></th><th class="confluenceTh"><p><strong>Name</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th><th class="confluenceTh"><p><strong>Event</strong></p></th></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>Indemnity Document</p></td><td class="confluenceTd"><p>Sends the Indeminity document to the seller of the vehicle</p></td><td class="confluenceTd"><p>When ORB</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>Temporary Document</p></td><td class="confluenceTd"><p>Sends the TDN document to the buyer of the vehicle</p></td><td class="confluenceTd"><p>When sold</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>Document</p></td><td class="confluenceTd"><p>Sending</p></td><td class="confluenceTd"><p>Through UI</p></td></tr></tbody></table></div><h4 id="Tenantemailsetup-General">General</h4><ul><li><p>TenantId</p></li></ul><h4 id="Tenantemailsetup-Pertypeofmail">Per type of mail</h4><div class="table-wrap"><table data-layout="default" data-local-id="0d410e53-53fc-48a0-9a9f-2a94d4079e05" class="confluenceTable"><colgroup><col style="width: 157.0px;"/><col style="width: 356.0px;"/><col style="width: 247.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Field</strong></p></th><th class="confluenceTh"><p><strong>Example</strong></p></th><th class="confluenceTh"><p><strong>Comments</strong></p></th></tr><tr><td class="confluenceTd"><p>From Address *</p></td><td class="confluenceTd"><p><a class="external-link" href="mailto:registratiexpert@vdcnederland.eu" rel="nofollow">registratiexpert@vdcnederland.eu</a></p></td><td class="confluenceTd"><p><em>this should be a whitelisted address due to spam checking</em></p></td></tr><tr><td class="confluenceTd"><p>Display Address/Name *</p></td><td class="confluenceTd"><p>RegistratieXpert</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Sender *</p></td><td class="confluenceTd"><p><a class="external-link" href="mailto:registratiexpert@vdcnederland.eu" rel="nofollow">registratiexpert@vdcnederland.eu</a></p></td><td class="confluenceTd"><p><em>this should be a whitelisted address due to spam checking</em></p></td></tr><tr><td class="confluenceTd"><p>ReplyTo address *</p></td><td class="confluenceTd"><p><a class="external-link" href="mailto:registratiexpert@vdcnederland.eu" rel="nofollow">registratiexpert@vdcnederland.eu</a></p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>To Address *</p></td><td class="confluenceTd"><p><code>[INBRENGER]</code>, <code>[KLANT]</code> or <a class="external-link" href="mailto:registratiexpert@vdcnederland.eu" rel="nofollow">registratiexpert@vdcnederland.eu</a></p></td><td class="confluenceTd"><p>You can use a placeholder for filling in the seller, customer or a static address</p></td></tr><tr><td class="confluenceTd"><p>Cc Address</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Bcc Address</p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>Subject *</p></td><td class="confluenceTd"><p>Vrijwaring voor [{LeesbaarKenteken}]</p></td><td class="confluenceTd"><p>Subject of the email</p></td></tr><tr><td class="confluenceTd"><p>Body *</p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html; gutter: false; theme: Confluence" data-theme="Confluence">&lt;div style=&#39;font-size: 10.0pt; font-family: &#39; Arial&#39;,&#39;sans-serif&#39;; color: #1f497d&#39;&gt;
+&lt;p&gt; Geachte klant,&lt;br/&gt;
+	&lt;br/&gt;
+	&lt;br/&gt; Hierbij ontvangt u het vrijwaringsbewijs voor het voertuig:&lt;br/&gt;
+	&lt;br/&gt; Kenteken: [{LeesbaarKenteken}]&lt;br/&gt; Merk: [{Merk}]&lt;br/&gt; Type: [{Type}]&lt;br/&gt;
+	&lt;br/&gt; Met vriendelijke groet,&lt;br/&gt;
+&lt;/p&gt;
+&lt;/div&gt;</pre>
+</div></div></td><td class="confluenceTd"><p>Here you can setup an html coded string that will be the body of the email.</p></td></tr><tr><td class="confluenceTd"><p>Error To Address *</p></td><td class="confluenceTd"><p><a class="external-link" href="mailto:registratiexpert@vdcnederland.eu" rel="nofollow">registratiexpert@vdcnederland.eu</a></p></td><td class="confluenceTd"><p>Set an address when the email fails.</p></td></tr></tbody></table></div><h3 id="Tenantemailsetup-Addsettings">Add settings</h3><p>Add the settings into the <code>tblMailSettings</code> table for each mail setting.</p><p /><h2 id="Tenantemailsetup-ConfiguremailportalinPortalServer">Configure mail portal in Portal Server</h2><p>Now you need to make a shortcut for the EmailPortal in the Portal Server. Make sure to start it.</p><h2 id="Tenantemailsetup-Enablefeature/permissionsinthebackoffice.">Enable feature/permissions in the backoffice.</h2><p>Make sure the feature and settings are enabled for the tenant so it will be used. <br/>Double check the Settings in the details of the tenant. There should be no ‘red’ blocks.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

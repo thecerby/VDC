@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Secure Source Code Statement</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Secure Source Code Statement
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 15 mrt., 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This statement describes an overview how the software RegistratieXpert is secured on different aspects of the application and development lifecycle.</p><h2 id="SecureSourceCodeStatement-Principles">Principles</h2><p>Each contributor needs to take the following into consideration:</p><ul><li><p>Do not trust the user</p></li><li><p>Keep it secure and simple</p></li><li><p>Question yourself: <em>Is there a security implication here?</em></p></li><li><p><a class="external-link" href="https://cheatsheetseries.owasp.org/IndexTopTen.html" rel="nofollow">OWASP Top 10</a></p></li><li><p>Security implications are discussed</p></li></ul><h2 id="SecureSourceCodeStatement-Storageandaccess">Storage and access</h2><p>The software is persisted into GIT version control and is stored in Azure DevOps Services.</p><p>Contributors are on invite-only and is being done through SSO of the company.</p><h3 id="SecureSourceCodeStatement-PullRequests">Pull Requests</h3><p>In order to contribute to the software, a PR must be made targeting the main branch. Here the Lead developer needs to approve the PR and the Continues Integration build needs to pass all unit-tests.</p><p>Changes made to the software must include: </p><ul><li><p>User Story ID, found in the Issue tracking System</p></li><li><p>Description of the change</p></li><li><p>Unit- and/or integration test.</p></li><li><p>Approval by the Lead developer</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Whenever a Pull Request is approved and new changes are pushed, the review is reset. </p></div></div><h2 id="SecureSourceCodeStatement-Externaldependencies">External dependencies</h2><p>Before introducing an external dependency, this will be reviewed by the Lead developer on the following topics:</p><ul><li><p>History of security vulnerabilities</p></li><li><p>How are security vulnerabilities being handled.</p></li><li><p>Maintainability, versioning</p></li><li><p>Popularity</p></li></ul><p>External dependencies (e.g. packages) used in the software is being checked regularly for risks found.<br/>Dependencies will be updated with at-least the latest minor version.</p><h3 id="SecureSourceCodeStatement-Restrictedsourcesofexternaldependencies:">Restricted sources of external dependencies:</h3><p>All external sources are prohibited unless listed below:</p><ul><li><p>NuGet official source</p></li><li><p>NPM official source</p></li><li><p>Company official source</p></li><li><p>Files added directly in source control</p></li></ul><h2 id="SecureSourceCodeStatement-Secrets/credentials">Secrets / credentials</h2><p>All production secrets and/or credentials are being stored in a secure environment such as a Key Vault or Key Store. When a release is being made, these secrets can be read through the automated deployment pipeline to the corresponding environment. </p><h2 id="SecureSourceCodeStatement-Deployment">Deployment</h2><p>All deployments are done through Azure DevOps Services and is automated. Prior pushing builds to the environment, the people responsible for the environment needs to approve the deployment process prior starting the deployment. This approval is registered.</p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

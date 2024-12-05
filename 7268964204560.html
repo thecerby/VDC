@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Deploy RegistratieXpert changes to [environment]</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to-articles_7268936286209.html">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Deploy RegistratieXpert changes to [environment]
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 28 mei, 2024
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>When you want to make changes to the RegistratieXpert, you need to submit a Pull Request and the changes needs to be pushed towards the <code>dev</code> branch of <code>RegistratieXpert</code> . When that is done, please follow below instrunctions;</p><h2 id="DeployRegistratieXpertchangesto[environment]-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p>For TST environment, after the PR is completed to <code>dev</code> the pipeline automates the way of deploying the changes to TST. Check the following release pipelines for the status;</p><ul><li><p>registratiexpert-test-api</p></li><li><p>registratiexpert-test-ui</p></li></ul><p>For the RegistratieXpertServices application, you check </p><ul><li><p>registratiexpert-services</p></li></ul><p /><p>If you need to rollout to UAT and PRD, create a PR from <code>dev</code> to <code>master</code> and complete the PR via rebase flow (NEVER DELETE THE <code>dev</code> branch)</p><p>The pipelines will be run for the master branch. Wait for it to complete and create a release for </p><ul><li><p>registratiexpert-api (if there are any API changes)</p></li><li><p>registratiexpert-ui (if there are any UI changes)</p></li></ul><p>For the RegistratieXpertServices application, you need to deploy for UAT, PRD etc..</p><ul><li><p>registratiexpert-services</p></li></ul><div class="panel" style="background-color: #FFFAE6;border-width: 1px;"><div class="panelContent" style="background-color: #FFFAE6;">
+<p>You need approval from Jeroen or Rick in order to deploy to production! (they will be informed via email)</p>
+</div></div><h3 id="DeployRegistratieXpertchangesto[environment]-Databasechanges"><strong>Database changes</strong></h3><p>if there are any database changes, you need to connect to the SQL server <code>VDC-SQL-TEST</code> for TST and UAT.<br/>For production you need to connect to <code>VDC-WEB-PRD</code>. Credentials are in access.mplus.nl</p><p>There on the desktop there is a shortcut named </p><p>TST =&gt; <code>RegistratieXpert.Migrator - TST</code><br/>UAT =&gt; <code>RegistratieXpert.Migrator - UAT</code><br/>PRD =&gt; <code>RegistratieXpert.Migrator - PRD</code></p><p>Start this application and type 'Y' when you want to proceed running the migration scripts.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>If there is an connection issue, this could be due to the hosts file not correctly being read. Try changing <a class="external-link" href="http://cloudapp.net" rel="nofollow">cloudapp.net</a> to <a class="external-link" href="http://registratiexpert.net" rel="nofollow">registratiexpert.net</a> in the connectionstrings of the migrator.</p></div></div><h2 id="DeployRegistratieXpertchangesto[environment]-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204560" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/VDC/pages/7268964204560/Deploy+RegistratieXpert+changes+to+environment">Deploy RegistratieXpert changes to [environment]</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7269000675332" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7269000675332/Fix+BPM+set+on+vehicle">Fix BPM set on vehicle</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204573" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268964204573/Could+not+create+SSL+TLS+secure+channel.">Could not create SSL/TLS secure channel.</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268936056833" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268936056833/Mail+is+not+being+sent">Mail is not being sent</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268907516136" data-linked-resource-type="page" data-linked-resource-version="12" href="/wiki/spaces/VDC/pages/7268907516136/OrbServiceTest+uitleg">OrbServiceTest uitleg</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Installatie RDW certificaat voor nieuwe/bestaande abonnee</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to-articles_7268936286209.html">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Installatie RDW certificaat voor nieuwe/bestaande abonnee
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 24 jul., 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="InstallatieRDWcertificaatvoornieuwe/bestaandeabonnee-Nodig:"><strong>Nodig: </strong></h2><ul><li><p>RDW certificaat van de abonnee </p></li><li><p>Bijhorende wachtwoord </p></li><li><p>Abonneenummer &amp; RDW bedrijfsnummer </p></li><li><p>Het RDW Bedrijfsnummer kan je vinden in de SQL database in tblAbonnee en dan filteren op AbonneeNummer of inloggen op <a class="external-link" data-card-appearance="inline" href="https://registratiexpert.nl/app/admin/tenants" rel="nofollow">https://registratiexpert.nl/app/admin/tenants</a>  en dan zoeken naar de abonnee</p></li><li><p>Nieuwe abonnee:</p><ul><li><p>A2SP account (indien ORB, OREH of ED) </p></li><li><p>Services die opgeleverd dient te worden. </p></li></ul></li></ul><p> </p><h3 id="InstallatieRDWcertificaatvoornieuwe/bestaandeabonnee-Stap1"><strong>Stap 1 </strong></h3><p>Nodig voor stap 1: </p><ul><li><p>RDW certificaat van de abonnee </p></li><li><p>Bijhorende wachtwoord </p></li><li><p>Abonneenummer &amp; RDW bedrijfsnummer </p></li></ul><p>Output:<code> </code></p><ul><li><p>Thumbprint certificaat </p></li></ul><p> </p><h3 id="InstallatieRDWcertificaatvoornieuwe/bestaandeabonnee-Stap1.1"><strong>Stap 1.1 </strong></h3><ol start="1"><li><p>Log in op VDC-WEB-PROD </p></li><li><p>plaats het RDW certificaat op schijf </p></li><li><p>Installeer het certificaat door te dubbelklikken </p></li><li><p>Selecteer LocalMachine </p></li><li><p>Vink &quot;Export private key&quot; aan </p></li><li><p>Voer het wachtwoord in </p></li><li><p>Plaats het certificaat in &quot;Personal&quot; </p></li><li><p>Open MMC </p></li><li><p>Voeg &quot;snap-in&quot; Certificates -&gt; LocalMachine toe. </p></li><li><p>Ga naar &quot;Personal&quot; </p></li><li><p>Zoek het certificaat op met het RDW bedrijfsnummer </p></li><li><p>Hernoem de friendly name, voeg bedrijfsnaam en Aboneenummer toe </p></li><li><p>Open de eigenschappen van het certificaat </p></li><li><p>Zoek de eigenschap &quot;Thumbprint&quot; op </p></li><li><p>Kopieeer deze en sla deze ergens op. </p></li><li><p>Zorg ervoor dat alle gekke karakters (er zit een lege spatie vooraan) en de spaties. </p></li></ol><p> </p><h3 id="InstallatieRDWcertificaatvoornieuwe/bestaandeabonnee-Stap2-Web"><strong>Stap 2 - Web</strong></h3><ol start="1"><li><p>Log in op <a class="external-link" data-card-appearance="inline" href="https://registratiexpert.nl/" rel="nofollow">https://registratiexpert.nl/</a> </p></li><li><p>Open “Tenants” en zoek de corresponderde tenant op</p></li><li><p>Klik bij “Acties” op “Details”</p></li><li><p>Ga naar tabblad “Rdw (Dienst Wegverkeer)”</p></li><li><p>Plaats de “thumbprint uit Stap 1.1 in het veld “RdwCertificaatThumbprint”</p></li><li><p>[nieuwe abonnees]</p><ol start="1"><li><p>Ga naar tabblad “A2SP”</p></li><li><p>Plaats de A2SP gebruikersnaam in &quot;A2SPUsername&quot; </p></li><li><p>Plaats de A2SP wachtwoord in &quot;A2SPPassword&quot; </p></li></ol></li><li><p>Druk op “opslaan”</p></li></ol><h3 id="InstallatieRDWcertificaatvoornieuwe/bestaandeabonnee-Stap2-SQL"><strong>Stap 2 - SQL</strong></h3><ol start="1"><li><p>Log in op de VDC-SQL-PROD </p></li><li><p>Open &quot;tblAbonnee&quot; in edit-modus en zoek naar het abonneenummer.  </p></li><li><p>Plaats de &quot;thumbprint&quot; uit Stap 1.1 in de kolom &quot;RdwCertificaatThumbprint&quot; </p></li><li><p>Plaats de A2SP gebruikersnaam in &quot;A2SPUsername&quot; </p></li><li><p>Plaats de A2SP wachtwoord in &quot;A2SPPassword&quot; </p></li></ol><p> </p><p>Nu zal de ORB, OREH en ED verzoeken naar de XML koppeling gaan. </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

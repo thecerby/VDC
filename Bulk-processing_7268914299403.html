@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Bulk processing</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Vehicles_7268905844737.html">Vehicles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Bulk processing
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 27 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This process requires the permission <code>Pages.Vehicles.BulkProcessVehicles</code></p></div></div><p>Within the RegistratieXpert it is possible to bulk process existing vehicles. With using an template, values can be updated and processed through RegistratieXpert.</p><p>Currently the bulk processing supports the following features:</p><ul><li><p>Create customer if not already exists</p></li><li><p>Assigning customer to vehicle</p></li><li><p>Validate VAT number if supplied</p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Validating VAT number requires the feature <code>App.VatCheckFeature</code></p></div></div><ul><li><p>Mark vehicle as sold when it is a domestic sale</p></li><li><p>Assign lamination codes to vehicle.</p></li></ul><p>As a tenant user you provide the following type of excel, containing:</p><div class="table-wrap"><table data-layout="default" data-local-id="c2611bfb-5143-4d60-bc03-ea6aa600c36d" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Column</strong></p></th><th class="confluenceTh"><p><strong>Type</strong></p></th><th class="confluenceTh"><p><strong>Comments</strong></p></th></tr><tr><td class="confluenceTd"><p>VIN</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>Unique identifier for the vehicle</p></td></tr><tr><td class="confluenceTd"><p>paidByDealer</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>Currently not used</p></td></tr><tr><td class="confluenceTd"><p>IsDomestic</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>Determines if the vehicle will be processed as sold</p></td></tr><tr><td class="confluenceTd"><p>Merchant voornaam</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>First Name of the merchant</p></td></tr><tr><td class="confluenceTd"><p>Merchant achternaam</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>Last Name of the merchant</p></td></tr><tr><td class="confluenceTd"><p>MerchantStreet</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>Street of the merchant</p></td></tr><tr><td class="confluenceTd"><p>MerchantHouseNumber</p></td><td class="confluenceTd"><p>number</p></td><td class="confluenceTd"><p>House Number of the merchant</p></td></tr><tr><td class="confluenceTd"><p>MerchantPostalCode</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>Postal Code of the merchant</p></td></tr><tr><td class="confluenceTd"><p>MerchantCity</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>City of the merchant</p></td></tr><tr><td class="confluenceTd"><p>MerchantCountryCode</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>ISO three-letter of the merchant</p></td></tr><tr><td class="confluenceTd"><p>MerchantMail</p></td><td class="confluenceTd"><p>email</p></td><td class="confluenceTd"><p>Email address  of the merchant</p></td></tr><tr><td class="confluenceTd"><p>vatNumber</p></td><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>VAT Number of the merchant</p></td></tr><tr><td class="confluenceTd"><p>laminationCode1</p></td><td class="confluenceTd"><p>number</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>laminationCode2</p></td><td class="confluenceTd"><p>number</p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p>here an example of the file:</p><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/7268914299403/7268914561132.xlsx" data-nice-type="Microsoft Excel Spreadsheet" data-file-src="/wiki/download/attachments/7268914299403/bulk-import-vehicles.xlsx?version=1&amp;modificationDate=1640622933284&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="7268914561132" data-linked-resource-type="attachment" data-linked-resource-container-id="7268914299403" data-linked-resource-default-alias="bulk-import-vehicles.xlsx" data-mime-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="0d3ee712-2c1d-44ea-a511-f5f86f32ffe3" data-media-type="file"><img src="attachments/thumbnails/7268914299403/7268914561132" height="250"/></a></span></p><h3 id="Bulkprocessing-Processbulkimport">Process bulk import</h3><div class="ap-container" id="ap-com.mxgraph.confluence.plugins.diagramly__drawio8916069062909108269">
+
+  <div class="ap-content " id="embedded-com.mxgraph.confluence.plugins.diagramly__drawio8916069062909108269"></div>
+  <script nonce="0012bcef0f68c5b8" class="ap-iframe-body-script">
+  (function(){
+    var data = {
+    "addon_key":"com.mxgraph.confluence.plugins.diagramly",
+    "uniqueKey":"com.mxgraph.confluence.plugins.diagramly__drawio8916069062909108269",
+    "key":"drawio",
+     "moduleType":"dynamicContentMacros",      "moduleLocation":"content",         "cp":"/wiki",
+            "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://ac.draw.io/connect/confluence/viewer-1-4-42.html?ceoId=7268914299403&diagramName=BulkProcess.drawio&revision=1&width=1008&height=2682&tbstyle=&simple=0&lbox=1&zoom=1&links=&owningPageId=7268914299403&displayName=BulkProcess.drawio&contentId=&custContentId=7268914234139&contentVer=1&inComment=0&aspect=&pCenter=0&hiRes=&templateUrl=&tmpBuiltIn=&mVer=&pageInfo=&xdm_e=https%3A%2F%2Fsowedo.atlassian.net&xdm_c=channel-com.mxgraph.confluence.plugins.diagramly__drawio8916069062909108269&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.mxgraph.confluence.plugins.diagramly&lic=active&cv=1000.0.0-1b44644ab907",
+        "structuredContext": "{\"license\":{\"active\":true},\"confluence\":{\"editor\":{\"version\":\"\\\"v2\\\"\"},\"macro\":{\"outputType\":\"html_export\",\"hash\":\"ab971fed-469b-41cc-bcee-ddbc17436ed1\",\"id\":\"ab971fed-469b-41cc-bcee-ddbc17436ed1\"},\"content\":{\"type\":\"page\",\"version\":\"1\",\"id\":\"7268914299403\"},\"space\":{\"key\":\"VDC\",\"id\":\"36732930\"}},\"url\":{\"displayUrl\":\"https://sowedo.atlassian.net/wiki\"}}",
+    "contentClassifier":"content",
+    "productCtx":"{\"page.id\":\"7268914299403\",\"macro.hash\":\"ab971fed-469b-41cc-bcee-ddbc17436ed1\",\"page.type\":\"page\",\"macro.localId\":\"507efa72-e0a7-4ee3-b115-5c9669abf144\",\"simple\":\"0\",\"inComment\":\"0\",\": = | RAW | = :\":\"zoom=1|simple=0|inComment=0|pageId=7268914299403|custContentId=7268914234139|lbox=1|diagramDisplayName=BulkProcess.drawio|contentVer=1|revision=1|baseUrl=https://mplusgroup.atlassian.net/wiki|diagramName=BulkProcess.drawio|pCenter=0|width=1008|links=|tbstyle=|height=2682\",\"space.id\":\"36732930\",\"diagramDisplayName\":\"BulkProcess.drawio\",\"diagramName\":\"BulkProcess.drawio\",\"links\":\"\",\"tbstyle\":\"\",\"user.isExternalCollaborator\":\"false\",\"height\":\"2682\",\"space.key\":\"VDC\",\"content.version\":\"1\",\"page.title\":\"Bulk processing\",\"zoom\":\"1\",\"macro.body\":\"\",\"pageId\":\"7268914299403\",\"custContentId\":\"7268914234139\",\"macro.truncated\":\"false\",\"lbox\":\"1\",\"content.type\":\"page\",\"output.type\":\"html_export\",\"contentVer\":\"1\",\"page.version\":\"1\",\"revision\":\"1\",\"baseUrl\":\"https://mplusgroup.atlassian.net/wiki\",\"macro.fragmentLocalId\":\"\",\"pCenter\":\"0\",\"content.id\":\"7268914299403\",\"width\":\"1008\",\"macro.id\":\"ab971fed-469b-41cc-bcee-ddbc17436ed1\",\"editor.version\":\"\\\"v2\\\"\"}",
+    "timeZone":"UTC",
+    "origin":"https://ac.draw.io",
+    "hostOrigin":"https://sowedo.atlassian.net",
+    "sandbox":"allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-storage-access-by-user-activation",    "pearApp":"true",        "apiMigrations": {
+        "gdpr": true
+    }
+}
+;
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+
+    // For Confluence App Analytics. This code works in conjunction with CFE's ConnectSupport.js.
+    // Here, we add a listener to the initial HTML page that stores events if the ConnectSupport component
+    // has not mounted yet. In CFE, we process the missed event data and disable this initial listener.
+    const __MAX_EVENT_ARRAY_SIZE__ = 20;
+    const connectAppAnalytics = "ecosystem.confluence.connect.analytics";
+    window.connectHost && window.connectHost.onIframeEstablished((eventData) => {
+      if (!window.__CONFLUENCE_CONNECT_SUPPORT_LOADED__) {
+        let events = JSON.parse(window.localStorage.getItem(connectAppAnalytics)) || [];
+        if (events.length >= __MAX_EVENT_ARRAY_SIZE__) {
+          events.shift();
+        }
+        events.push(eventData);
+        window.localStorage.setItem(connectAppAnalytics, JSON.stringify(events));
+      }
+    });
+
+  }());
+</script>
+
+</div>
+<p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914462897.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914397793.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914168894.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914234121.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914561121.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914397802.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914397811.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914528431.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914234130.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914397661.tmp">~drawio~557058:759dcf97-92ab-44ee-b3fa-ab35055dc7a8~BulkProcess.drawio.tmp</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914397820.drawio">BulkProcess.drawio</a> (application/vnd.jgraph.mxfile)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914299556.png">BulkProcess.drawio.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914299403/7268914561132.xlsx">bulk-import-vehicles.xlsx</a> (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

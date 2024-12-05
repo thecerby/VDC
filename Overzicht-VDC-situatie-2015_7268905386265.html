@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Overzicht VDC situatie 2015</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Overview-VDC-Projects_1129775105.html">Overview VDC Projects</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="General-overview_7268914168751.html">General overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Overzicht VDC situatie 2015
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 01 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Servers Productie:</p><p> </p><p>Productie:           <a class="external-link" href="http://VDC-PROD-PORTLS.cloudapp.net:3389" rel="nofollow">VDC-PROD-PORTLS.cloudapp.net:3389</a>  </p><p>WEB:                     <a class="external-link" href="http://VDC-PROD-WEB.cloudapp.net:60912" rel="nofollow">VDC-PROD-WEB.cloudapp.net:60912</a></p><p>SQL:                       <a class="external-link" href="http://VDC-PROD-SQL.cloudapp.net:81" rel="nofollow">VDC-PROD-SQL.cloudapp.net:81</a></p><p> </p><p>Server Testomgeving:</p><p><strong> </strong></p><p>Portalen:             <a class="external-link" href="http://VDC-TEST-PORTLS.cloudapp.net:55300" rel="nofollow">VDC-TEST-PORTLS.cloudapp.net:55300</a></p><p>WEB:                     <a class="external-link" href="http://VDC-TEST-WEB.cloudapp.net" rel="nofollow">VDC-TEST-WEB.cloudapp.net</a></p><p>SQL:                       <a class="external-link" href="http://VDC-TEST-SQL.cloudapp.net" rel="nofollow">VDC-TEST-SQL.cloudapp.net</a></p><p>De servers zijn opgezet in een Microsoft Azure omgeving.</p><p> </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268905386265/7268905746459.png" data-image-src="attachments/7268905386265/7268905746459.png" data-height="262" data-width="454" data-unresolved-comment-count="0" data-linked-resource-id="7268905746459" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211201-143323.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268905386265" data-linked-resource-container-version="1" data-media-id="fbd05aec-1fb7-4216-8e02-cf87f9030c09" data-media-type="file"></span><p>Het landschap bestaat uit de volgende onderdelen:</p><p> </p><ul><li><p>Webserver (Serveert Silverlight app, Diverse webservices, Klant documenten)</p></li></ul><ul><li><p>SQL server (MSSQL, Reporting server)</p></li></ul><ul><li><p>Portal server (RDW Klant portalen, Email afhandeling, Batch verwerking)</p></li></ul><ul><li><p>Backoffice applicatie welke door VDC backoffice wordt gebruikt</p></li></ul><ul><li><p>Diverse externe (third party) webservices als RDW OVI, VIES (BTW Check), en A2SP</p></li></ul><p> In hoofdlijnen bestaat de applicatie uit een Silverlight applicatie die draait in de browser van de eindgebruiker. Deze applicatie maakt verbinding met een webserver die op zijn beurt gegevens ophaalt en wegschrijft in een database. Tenslotte draaien er diverse ‘portaal’ applicaties op een derde server die namens de eindgebruiker acties uitvoert op het web portaal van de RDW.</p><p> </p><p>Per server uitgelicht wat erop draait:</p><p> </p><ul><li><p>Productie server: <a class="external-link" href="http://VDC-PROD-PORTLS.cloudapp.net:3389" rel="nofollow">VDC-PROD-PORTLS.cloudapp.net:3389</a></p></li></ul><ul><li><p>Klant Portalen </p></li></ul><p>     Te weten, ORB, OREH, Kcb, Machting, Tdn , Tv, Ored, Mail</p><ul><li><p>Klant RDW certificaten</p></li></ul><ul><li><p>Batch routines tool</p></li></ul><ul><li><p>SMTP Handler</p></li></ul><ul><li><p>RegistratieXpert BackOffice. Dit zal binnenkort een clickonce installatie worden via <a class="external-link" href="https://vdc.registratiexpert.nl/backoffice/" rel="nofollow">https://vdc.registratiexpert.nl/backoffice/</a></p></li></ul><p> </p><ul><li><p>Web server: <a class="external-link" href="http://VDC-PROD-WEB.cloudapp.net:60912" rel="nofollow">VDC-PROD-WEB.cloudapp.net:60912</a></p></li></ul><ul><li><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268905386265/7268905550223.png" data-image-src="attachments/7268905386265/7268905550223.png" data-height="198" data-width="454" data-unresolved-comment-count="0" data-linked-resource-id="7268905550223" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211201-143436.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268905386265" data-linked-resource-container-version="1" data-media-id="c73834e7-57c0-419f-acf5-c4840f9fa97d" data-media-type="file"></span></li></ul><ul><li><p>IIS</p></li></ul><ul><li><p><a class="external-link" href="http://registratieXpert.nl" rel="nofollow">registratieXpert.nl</a>  <a class="external-link" data-card-appearance="inline" href="https://vdc.registratiexpert.nl" rel="nofollow">https://vdc.registratiexpert.nl</a> </p></li></ul><ul><li><p>Cobian Backup (maakt een backup van alle documenten en applicatiefiles)</p></li></ul><ul><li><p>Service voor Resetten wachtwoord van RDWovi (Windows Service: VDC RDW Password Reset Service)</p></li></ul><ul><li><p>BCA Service. Dit is feitelijk de eerste Soap server versie van de gehele applicatie, alleen Autoveiling wordt hiermee afgehandeld.</p></li></ul><ul><li><p>External Services. Deze worden aangeroepen door RegistratieXpert BackOffice en in enkele gevallen door RegistratieXpert Services (pass through)</p></li></ul><ul><li><p>Mail Services: Deze service gebruikt ‘sendgrid’ (cloud based) om SMTP mail te versturen</p></li></ul><ul><li><p>RegistratieXpert Services.  Voornamelijk aangeroepen door de Silverlight applet en door de Portals die per seconde pollen of er een nieuwe opdracht moet worden verwerkt.<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7268905386265/7268905680906.png" data-image-src="attachments/7268905386265/7268905680906.png" data-height="209" data-width="454" data-unresolved-comment-count="0" data-linked-resource-id="7268905680906" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211201-143429.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7268905386265" data-linked-resource-container-version="1" data-media-id="6059001c-223e-404e-b7f9-cbe64805affa" data-media-type="file"></span></li></ul><p> </p><ul><li><p>SQL server: <a class="external-link" href="http://VDC-PROD-SQL.cloudapp.net:81" rel="nofollow">VDC-PROD-SQL.cloudapp.net:81</a></p></li></ul><ul><li><p>Wachtwoord reset tool</p></li></ul><ul><li><p>Reporting (onder andere BCA mail met werkzaamheden van de dag ervoor)</p></li></ul><ul><li><p>Database (SQL Server 2014 SP1)</p></li></ul><ul><li><p>Management Studio SQL 2014 </p></li></ul><p>Binnen Azure is er een extra VHD (Schijf) aangemaakt en is gekoppeld aan de Productie server (drive letter E) voor backups.</p><p> </p><h3 id="OverzichtVDCsituatie2015-Clientinstallatie(Optioneelvoorwiedezemodulewenst)">Client installatie (Optioneel voor wie deze module wenst)</h3><ol><li><p>Kentekencard reader. Dit is een .NET 4.5.1 clickonce applicatie. </p></li></ol><p>Installatie geschiedt eenmalig via <a class="external-link" data-card-appearance="inline" href="https://vdc.registratiexpert.nl/kentekencardreader/" rel="nofollow">https://vdc.registratiexpert.nl/kentekencardreader/</a> . Updates worden automatisch verspreid/</p><p>Zou ik weglaten en verwijzen naar Werkinstructie-VDC.docx! Anders krijgen we dubbel document onderhoud</p><p><br/></p><p> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268905386265/7268905746459.png">image-20211201-143323.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268905386265/7268905680906.png">image-20211201-143429.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268905386265/7268905550223.png">image-20211201-143436.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

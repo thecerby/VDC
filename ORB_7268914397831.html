@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : ORB</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Overview-VDC-Projects_1129775105.html">Overview VDC Projects</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VWE-Services_1129840641.html">VWE Services</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : ORB
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 27 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>URL:       /VWE/wsORB.asmx</p><p> </p><h3 id="ORB-SendORBrequest">Send ORB request</h3><p>Sends an ORB request </p><div class="table-wrap"><table data-layout="full-width" data-local-id="d8ff1eb7-e9a0-4b04-8e79-f28e66b885ea" class="confluenceTable"><colgroup><col style="width: 383.0px;"/><col style="width: 1415.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Soap Message</strong></p></td><td class="confluenceTd"><p>versturenv3</p></td></tr><tr><td class="confluenceTd"><p><strong>Help URL</strong></p></td><td class="confluenceTd"><p>/VWE/wsORB.asmx?op=versturenv3</p></td></tr><tr><td class="confluenceTd"><p><strong>Method (Verb)</strong></p></td><td class="confluenceTd"><p>POST</p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>SOAPAction: &quot;<a class="external-link" href="http://www.xmlMode.net/orb/versturenv3" rel="nofollow">http://www.xmlMode.net/orb/versturenv3</a>&quot;<br/>Content-Type: text/xml; charset=utf-8</p></td></tr><tr><td class="confluenceTd"><p><strong>Parameters</strong></p></td><td class="confluenceTd"><ul><li><p>Reference (optional)</p></li></ul><ul><li><p>License Plate (required)</p></li></ul></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Request body</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>XML format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;soap12:Envelope xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap12=&quot;http://www.w3.org/2003/05/soap-envelope&quot;&gt;
+  &lt;soap12:Body&gt;
+    &lt;versturenv3 xmlns=&quot;http://www.xmlMode.net/orb/&quot;&gt;
+      &lt;xml_in_versturen&gt;
+        &lt;client&gt;
+          &lt;authenticatie&gt;
+            &lt;reseller xsi:nil=&quot;true&quot; /&gt;
+            &lt;eindgebruiker xsi:nil=&quot;true&quot; /&gt;
+          &lt;/authenticatie&gt;
+          &lt;sessie&gt;
+            &lt;sessionkey&gt;string&lt;/sessionkey&gt;
+          &lt;/sessie&gt;
+          &lt;referentie&gt;
+            &lt;info&gt;string&lt;/info&gt;
+          &lt;/referentie&gt;
+        &lt;/client&gt;
+        &lt;voertuig&gt;
+          &lt;kenteken&gt;string&lt;/kenteken&gt;
+          &lt;meldcode&gt;string&lt;/meldcode&gt;
+          &lt;duplicaatcode&gt;string&lt;/duplicaatcode&gt;
+          &lt;controleletter&gt;string&lt;/controleletter&gt;
+          &lt;statuscodetellerstand&gt;string&lt;/statuscodetellerstand&gt;
+          &lt;tellerstand&gt;int&lt;/tellerstand&gt;
+          &lt;afstandseenheidtellerstand&gt;string&lt;/afstandseenheidtellerstand&gt;
+          &lt;technischeeisafhandelcode&gt;string&lt;/technischeeisafhandelcode&gt;
+          &lt;tenaamstellingscodedeel1&gt;string&lt;/tenaamstellingscodedeel1&gt;
+          &lt;tenaamstellingscodedeel2&gt;string&lt;/tenaamstellingscodedeel2&gt;
+          &lt;kentekendocumentnummer&gt;string&lt;/kentekendocumentnummer&gt;
+          &lt;kentekenkaartaanvragen&gt;boolean&lt;/kentekenkaartaanvragen&gt;
+          &lt;kentekenkaartovergedragen&gt;boolean&lt;/kentekenkaartovergedragen&gt;
+          &lt;tellerrapportopvragen&gt;boolean&lt;/tellerrapportopvragen&gt;
+          &lt;koper&gt;
+            &lt;kopernummer&gt;string&lt;/kopernummer&gt;
+            &lt;koperzoeknaam&gt;string&lt;/koperzoeknaam&gt;
+            &lt;kopernaam&gt;string&lt;/kopernaam&gt;
+            &lt;koperbtw&gt;string&lt;/koperbtw&gt;
+            &lt;koperadres&gt;string&lt;/koperadres&gt;
+            &lt;koperpc&gt;string&lt;/koperpc&gt;
+            &lt;koperplaats&gt;string&lt;/koperplaats&gt;
+            &lt;koperland&gt;string&lt;/koperland&gt;
+            &lt;kopertelefoon&gt;string&lt;/kopertelefoon&gt;
+            &lt;kopermobiel&gt;string&lt;/kopermobiel&gt;
+            &lt;kopermail&gt;string&lt;/kopermail&gt;
+          &lt;/koper&gt;
+          &lt;inbrenger&gt;
+            &lt;inbrengernummer&gt;string&lt;/inbrengernummer&gt;
+            &lt;inbrengerzoeknaam&gt;string&lt;/inbrengerzoeknaam&gt;
+            &lt;inbrengernaam&gt;string&lt;/inbrengernaam&gt;
+            &lt;inbrengerbtw&gt;string&lt;/inbrengerbtw&gt;
+            &lt;inbrengeradres&gt;string&lt;/inbrengeradres&gt;
+            &lt;inbrengerpc&gt;string&lt;/inbrengerpc&gt;
+            &lt;inbrengerplaats&gt;string&lt;/inbrengerplaats&gt;
+            &lt;inbrengerland&gt;string&lt;/inbrengerland&gt;
+            &lt;inbrengertelefoon&gt;string&lt;/inbrengertelefoon&gt;
+            &lt;inbrengermobiel&gt;string&lt;/inbrengermobiel&gt;
+            &lt;inbrengermail&gt;string&lt;/inbrengermail&gt;
+          &lt;/inbrenger&gt;
+        &lt;/voertuig&gt;
+      &lt;/xml_in_versturen&gt;
+    &lt;/versturenv3&gt;
+  &lt;/soap12:Body&gt;
+&lt;/soap12:Envelope&gt;
+</pre>
+</div></div></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>200: XML format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+  &lt;soap:Body&gt;
+    &lt;versturenv3Response xmlns=&quot;http://www.xmlMode.net/orb/&quot;&gt;
+      &lt;versturenv3Result&gt;
+        &lt;client&gt;
+          &lt;authenticatie&gt;
+            &lt;reseller&gt;
+              &lt;klantnummer&gt;7777&lt;/klantnummer&gt;
+              &lt;inlognaam&gt;demo.remco&lt;/inlognaam&gt;
+              &lt;wachtwoord&gt;demo@2015&lt;/wachtwoord&gt;
+            &lt;/reseller&gt;
+            &lt;eindgebruiker&gt;
+              &lt;klantnummer&gt;7777&lt;/klantnummer&gt;
+              &lt;inlognaam&gt;demo.remco&lt;/inlognaam&gt;
+              &lt;wachtwoord&gt;demo@2015&lt;/wachtwoord&gt;
+            &lt;/eindgebruiker&gt;
+          &lt;/authenticatie&gt;
+        &lt;/client&gt;
+        &lt;voertuig&gt;
+          &lt;kenteken&gt;GTVD46&lt;/kenteken&gt;
+          &lt;meldcode&gt;4546&lt;/meldcode&gt;
+          &lt;duplicaatcode /&gt;
+          &lt;controleletter /&gt;
+          &lt;tellerstand&gt;76576&lt;/tellerstand&gt;
+          &lt;afstandseenheidtellerstand&gt;K&lt;/afstandseenheidtellerstand&gt;
+          &lt;kentekendocumentnummer&gt;1234512821&lt;/kentekendocumentnummer&gt;
+          &lt;kentekenkaartaanvragen&gt;true&lt;/kentekenkaartaanvragen&gt;
+          &lt;kentekenkaartovergedragen&gt;false&lt;/kentekenkaartovergedragen&gt;
+          &lt;tellerrapportopvragen&gt;true&lt;/tellerrapportopvragen&gt;
+        &lt;/voertuig&gt;
+        &lt;transactie&gt;
+          &lt;statuscode&gt;1&lt;/statuscode&gt;
+          &lt;kortemelding&gt;I&lt;/kortemelding&gt;
+          &lt;extramelding&gt;RDW: 714 Te weinig informatie voor een betrouwbaar oordeel over de tellerstand&lt;/extramelding&gt;
+          &lt;referentieidhen&gt;VWE_2287&lt;/referentieidhen&gt;
+          &lt;datumtijdregistratierdw&gt;2017-10-05T11:26:00&lt;/datumtijdregistratierdw&gt;
+          &lt;transactiecoderdw&gt;BKKN&lt;/transactiecoderdw&gt;
+          &lt;rdwbedrijfsnummer&gt;1912&lt;/rdwbedrijfsnummer&gt;
+          &lt;bedrijfsnaam&gt;Automot. Application Service Provider (A2SP)&lt;/bedrijfsnaam&gt;
+          &lt;vestigingsplaatsbedrijf&gt;Utrecht&lt;/vestigingsplaatsbedrijf&gt;
+          &lt;toelichtingverslagopnamebedrijfsvoorraad /&gt;
+          &lt;kentekenkaartoverdrachtsverklaringdocument /&gt;
+        &lt;/transactie&gt;
+      &lt;/versturenv3Result&gt;
+    &lt;/versturenv3Response&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+</div></div></td></tr></tbody></table></div><p> </p><p><br/></p><p> </p><p>1.1.1. Response format explanation</p><p> </p><p>The response object returns the following object:</p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="462ee477-bf2b-4349-a7e9-20e7ce68d0bf" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p>Description</p></td></tr><tr><td class="confluenceTd"><p>Voertuig</p></td><td class="confluenceTd"><p>&lt;voertuig&gt;</p></td><td class="confluenceTd"><p>Sent vehicle information</p></td></tr><tr><td class="confluenceTd"><p>Transactie</p></td><td class="confluenceTd"><p>&lt;transactie&gt;</p></td><td class="confluenceTd"><p>Transaction data from the ORB request</p></td></tr></tbody></table></div><p> </p><p>The Response Data is an array of responses since there can be multiple actions done on a single endpoint.</p><p><br/></p><p> </p><p>Transactie property</p><p>The “transactie” property has the following properties</p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="dff2a33e-216d-4dc7-8551-d9ac54678c21" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>statuscode</strong></p></td><td class="confluenceTd"><p>&lt;statuscode&gt;</p></td><td class="confluenceTd"><p>Response status code from RDW</p><p> </p></td></tr><tr><td class="confluenceTd"><p><strong>kortemelding</strong></p></td><td class="confluenceTd"><p>&lt;kortemelding&gt;</p></td><td class="confluenceTd"><p>I = information<br/>W = warning</p><p>F = Failed</p><p>S = Application failure</p></td></tr><tr><td class="confluenceTd"><p><strong>extramelding</strong></p></td><td class="confluenceTd"><p>&lt;extramelding&gt;</p></td><td class="confluenceTd"><p>Extra information from &lt;kortemelding&gt;</p></td></tr><tr><td class="confluenceTd"><p><strong>referentieidhen</strong></p></td><td class="confluenceTd"><p>&lt;referentieidhen&gt;</p></td><td class="confluenceTd"><p>Reference of the request</p></td></tr><tr><td class="confluenceTd"><p><strong>Datumtijdregistratierdw</strong></p></td><td class="confluenceTd"><p>&lt;datumtijdregistratierdw&gt;</p></td><td class="confluenceTd"><p>Date and tme registration RDW</p></td></tr><tr><td class="confluenceTd"><p><strong>transactiecoderdw</strong></p></td><td class="confluenceTd"><p>&lt;transactiecoderdw&gt;</p></td><td class="confluenceTd"><p>TransactionCode from RDW</p></td></tr><tr><td class="confluenceTd"><p><strong>rdwbedrijfsnummer</strong></p></td><td class="confluenceTd"><p>&lt;rdwbedrijfsnummer&gt;</p></td><td class="confluenceTd"><p>Company RDW number</p></td></tr><tr><td class="confluenceTd"><p><strong>bedrijfsnaam</strong></p></td><td class="confluenceTd"><p>&lt;bedrijfsnaam&gt;</p></td><td class="confluenceTd"><p>Company name</p></td></tr><tr><td class="confluenceTd"><p><strong>vestigingsplaatsbedrijf</strong></p></td><td class="confluenceTd"><p>&lt;vestigingsplaatsbedrijf&gt;</p></td><td class="confluenceTd"><p>City of company</p></td></tr></tbody></table></div><p> </p><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

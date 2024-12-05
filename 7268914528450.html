@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : ATD / TDN</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Overview-VDC-Projects_1129775105.html">Overview VDC Projects</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VWE-Services_1129840641.html">VWE Services</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : ATD / TDN
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 27 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>URL:       /VWE/wsATD.asmx</p><p> </p><h2 id="ATD/TDN-Workflow">Workflow</h2><p>ATD has a series of workflow to complete the request at RDW. The reason for this workflow is to ensure we return the temporary codes from RDW that are retrieved via an RDW web portal which is not 100% certain to deliver the data within a standard HTTP request.</p><h2 id="ATD/TDN-SendATDrequest">Send ATD request</h2><div class="table-wrap"><table data-layout="full-width" data-local-id="a79078f8-45a1-492a-9a76-7e6c57c6b1e8" class="confluenceTable"><colgroup><col style="width: 407.0px;"/><col style="width: 1391.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Soap Message</strong></p></td><th class="confluenceTh"><p>versturen</p></th></tr><tr><td class="confluenceTd"><p><strong>Help URL</strong></p></td><td class="confluenceTd"><p>/VWE/wsATD.asmx?op=versturen</p></td></tr><tr><td class="confluenceTd"><p><strong>Method (Verb)</strong></p></td><td class="confluenceTd"><p>POST</p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>SOAPAction: &quot;<a class="external-link" href="http://www.xmlMode.net/atd/versturen" rel="nofollow">http://www.xmlMode.net/atd/versturen</a>&quot;<br/>Content-Type: text/xml; charset=utf-8</p></td></tr><tr><td class="confluenceTd"><p><strong>Parameters</strong></p></td><td class="confluenceTd"><ul><li><p>kenteken (required)</p></li></ul><ul><li><p>meldcode (required)</p></li></ul></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Request body</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>XML format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:atd=&quot;http://www.xmlMode.net/atd/&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;atd:versturen&gt;
+         &lt;atd:xml_in_versturen&gt;
+            &lt;atd:client&gt;
+               &lt;atd:authenticatie&gt;
+                  &lt;atd:reseller&gt;
+                     &lt;atd:klantnummer&gt;&lt;/atd:klantnummer&gt;
+                     &lt;atd:inlognaam&gt;&lt;/atd:inlognaam&gt;
+                     &lt;atd:wachtwoord&gt;&lt;/atd:wachtwoord&gt;
+                  &lt;/atd:reseller&gt;
+                  &lt;atd:eindgebruiker&gt;
+                     &lt;atd:klantnummer&gt;&lt;/atd:klantnummer&gt;
+                     &lt;atd:inlognaam&gt;&lt;/atd:inlognaam&gt;
+                     &lt;atd:wachtwoord&gt;&lt;/atd:wachtwoord&gt;
+                  &lt;/atd:eindgebruiker&gt;
+               &lt;/atd:authenticatie&gt;
+            &lt;/atd:client&gt;
+            &lt;atd:voertuig&gt;
+               &lt;atd:kenteken&gt;&lt;/atd:kenteken&gt;
+               &lt;atd:meldcode&gt;&lt;/atd:meldcode&gt;
+            &lt;/atd:voertuig&gt;
+         &lt;/atd:xml_in_versturen&gt;
+      &lt;/atd:versturen&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</pre>
+</div></div><p /></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>200: XML format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+   &lt;soap:Body&gt;
+      &lt;versturenResponse xmlns=&quot;http://www.xmlMode.net/atd/&quot;&gt;
+         &lt;xml_out_versturen&gt;
+            &lt;loginresult&gt;
+               &lt;code&gt;&lt;/code&gt;
+               &lt;melding&gt; &lt;/melding&gt;
+            &lt;/loginresult&gt;
+            &lt;voertuig&gt;
+               &lt;transactieid&gt;&lt;/transactieid&gt;
+               &lt;documentnummer&gt;&lt;/documentnummer&gt;
+               &lt;tenaamstellingscode1&gt;&lt;/tenaamstellingscode1&gt;
+               &lt;tenaamstellingscode2&gt;&lt;/tenaamstellingscode2&gt;
+            &lt;/voertuig&gt;
+            &lt;transactiemeldingen&gt;
+               &lt;statuscode&gt;&lt;/statuscode&gt;
+               &lt;foutmeldingen&gt;&lt;/foutmeldingen&gt;
+           &lt;/transactiemeldingen&gt;
+         &lt;/xml_out_versturen&gt;
+      &lt;/versturenResponse&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</pre>
+</div></div></td></tr></tbody></table></div><h3 id="ATD/TDN-Responseformatexplanation">Response format explanation</h3><p> The response object returns the following object:</p><div class="table-wrap"><table data-layout="default" data-local-id="c487f5c3-12ae-40b3-b016-b6338075de27" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p>Description</p></td></tr><tr><td class="confluenceTd"><p>Voertuig</p></td><td class="confluenceTd"><p>&lt;voertuig&gt;</p></td><td class="confluenceTd"><p>Sent vehicle information</p></td></tr><tr><td class="confluenceTd"><p>Transactiemeldingen</p></td><td class="confluenceTd"><p>&lt;transactiemeldingen&gt;</p></td><td class="confluenceTd"><p>Additional information about the transaction</p></td></tr></tbody></table></div><p> </p><h4 id="ATD/TDN-Voertuigproperty">Voertuig property</h4><p>The “voertuig” property has the following properties</p><div class="table-wrap"><table data-layout="default" data-local-id="4d44c749-0b15-48f9-8927-1d84ee57b276" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td></tr><tr><td class="confluenceTd"><p>Transanctieid</p></td><td class="confluenceTd"><p>&lt;transactieid&gt;</p></td><td class="confluenceTd"><p>Reference for the done transaction. This will be returned at all times</p></td></tr><tr><td class="confluenceTd"><p>documentnummer</p></td><td class="confluenceTd"><p>&lt;documentnummer&gt;</p></td><td class="confluenceTd"><p>Document number related to the vehicle</p></td></tr><tr><td class="confluenceTd"><p>tenaamstellingscode1</p></td><td class="confluenceTd"><p>&lt;tenaamstellingscode1&gt;</p></td><td class="confluenceTd"><p>The first attribution code</p></td></tr><tr><td class="confluenceTd"><p>tenaamstellingscode2</p></td><td class="confluenceTd"><p>&lt;tenaamstellingscode2&gt;</p></td><td class="confluenceTd"><p>The first attribution code</p></td></tr></tbody></table></div><p> </p><h4 id="ATD/TDN-Transactiemeldingenproperty">Transactiemeldingen property</h4><p>The “transactiemeldingen” property has the following properties</p><div class="table-wrap"><table data-layout="default" data-local-id="1f8b0f56-f4c6-498c-a34d-cac6b4a3f85b" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td></tr><tr><td class="confluenceTd"><p>foutmeldingen</p></td><td class="confluenceTd"><p>&lt;foutmeldingen&gt;</p></td><td class="confluenceTd"><p>Error message given by the portal-call</p></td></tr><tr><td class="confluenceTd"><p>statuscode</p></td><td class="confluenceTd"><p>&lt;statuscode&gt;</p></td><td class="confluenceTd"><p>Errror code related to the ‘foutmelding’</p></td></tr></tbody></table></div><p> </p><p><strong>Statuscodes</strong></p><div class="table-wrap"><table data-layout="default" data-local-id="d5856e2c-3c84-46f4-9455-6ec47c27dbf2" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Code</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td><td class="confluenceTd"><p><strong>Resolution</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>00</strong></p></td><td class="confluenceTd"><p>Correct</p></td><td class="confluenceTd"><p>Completed</p></td></tr><tr><td class="confluenceTd"><p><strong>90</strong></p></td><td class="confluenceTd"><p>RDW error</p></td><td class="confluenceTd"><p>Please review &lt;foutmeldingen&gt; for more details</p></td></tr></tbody></table></div><p> </p><p><br/></p><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

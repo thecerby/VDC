@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Create Vehicle</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Vehicle-APIs_1536589849.html">Vehicle APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Create Vehicle
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 27 okt., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>Authentication</strong></p><p>Please refer to this page. <a class="external-link" href="https://mplusgroup.atlassian.net/wiki/spaces/VDC/pages/edit-v2/1580859442?draftShareId=8afc2d6c-c754-4060-ae7b-bb7dc0f3bab2" rel="nofollow">Authentication APIs - VDC - Confluence (atlassian.net)</a></p><p><strong>Authorization</strong></p><p>This requires api permission <code>Pages_Vehicles_Create</code> </p></div></div><p>You can create a new vehicle by using the following information:</p><div class="table-wrap"><table data-layout="default" data-local-id="8056f1a5-6ad8-4c92-a142-f481cdde73cd" class="confluenceTable"><colgroup><col style="width: 340.0px;"/><col style="width: 340.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/Vehicle​/CreateVehicle</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">POST</span> </p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Bearer<code>{token from Authorized Tenant User}</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><ul><li><p><code>licensePlate</code>- <code>String</code>- (required) </p></li><li><p><code>reportCode</code></p></li><li><p>hasCounterPosition</p></li><li><p>counterPosition</p></li><li><p>counterType</p></li><li><p>licensePlateType</p></li><li><p>duplicateCheck</p></li><li><p>characterCheck</p></li><li><p>documentNumber</p></li><li><p>attendanceCode1</p></li><li><p>attendanceCode2</p></li><li><p>chassisNumber</p></li><li><p>reliability</p><ul><li><p>succeeded</p></li><li><p>result</p></li><li><p>reason</p></li><li><p>reliability</p></li></ul></li></ul></td></tr></tbody></table></div><p /><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;licensePlate&quot;: &quot;string&quot;,
+  &quot;reportCode&quot;: &quot;string&quot;,
+  &quot;hasCounterPosition&quot;: true,
+  &quot;counterPosition&quot;: 0,
+  &quot;counterType&quot;: &quot;s&quot;,
+  &quot;licensePlateType&quot;: 0,
+  &quot;duplicateCode&quot;: 0,
+  &quot;characterCheck&quot;: &quot;s&quot;,
+  &quot;documentNumber&quot;: &quot;string&quot;,
+  &quot;attendanceCode1&quot;: &quot;stri&quot;,
+  &quot;attendanceCode2&quot;: &quot;strin&quot;,
+  &quot;chassisNumber&quot;: &quot;string&quot;,
+  &quot;reliability&quot;: {
+    &quot;succeeded&quot;: true,
+    &quot;result&quot;: &quot;string&quot;,
+    &quot;reason&quot;: &quot;string&quot;,
+    &quot;reliability&quot;: 0
+  }
+}</pre>
+</div></div><p><strong>Output</strong></p><p>The created vehicle Id</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;id&quot;: &quot;3fa85f64-5717-4562-b3fc-2c963f66afa6&quot;
+}</pre>
+</div></div><p /><p><strong>Process upon creation</strong></p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="680" loading="lazy" src="attachments/1536622625/1581383810.png?width=680" data-image-src="attachments/1536622625/1581383810.png" data-height="883" data-width="1414" data-unresolved-comment-count="0" data-linked-resource-id="1581383810" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211027-130934.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1536622625" data-linked-resource-container-version="5" data-media-id="0f92779d-4e73-4e70-b4d1-a25cb850d2be" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1536622625/1581383810.png">image-20211027-130934.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

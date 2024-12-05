@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Vehicle Information</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Overview-VDC-Projects_1129775105.html">Overview VDC Projects</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DataXpert_1129906187.html">DataXpert</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Vehicle Information
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 27 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>base_url:             /api/v1/vehicles</p><h2 id="VehicleInformation-Information">Information</h2><p>Retrieves  vehicle information based on the subscription </p><div class="table-wrap"><table data-layout="wide" data-local-id="ee81cc86-a24d-4aef-99d6-a610fca25837" class="confluenceTable"><colgroup><col style="width: 230.0px;"/><col style="width: 728.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>URL</strong></p></td><td class="confluenceTd"><p>{base_url}/information</p></td></tr><tr><td class="confluenceTd"><p><strong>Method (Verb)</strong></p></td><td class="confluenceTd"><p>POST</p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json</p><p>Content-Type: application/json</p><p>OR</p><p>Accept: text/xml<br/>Content-Type: text/xml</p></td></tr><tr><td class="confluenceTd"><p><strong>Parameters</strong></p></td><td class="confluenceTd"><ul><li><p>Reference (optional)</p></li></ul><ul><li><p>License Plate (required)</p></li></ul></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Request body</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>JSON format</strong></p><p><strong> </strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+   &quot;reference&quot;:string,
+   &quot;licensePlate&quot;:string
+}</pre>
+</div></div></td></tr><tr><td class="confluenceTd"><p><strong>XML format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;VehicleRequest&gt;
+  &lt;Reference&gt;string&lt;/Reference&gt;
+  &lt;LicensePlate&gt;string&lt;/LicensePlate&gt;
+&lt;/VehicleRequest&gt;</pre>
+</div></div></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Success Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>200: JSON format</strong></p></td><td class="confluenceTd"><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/7268914397852/7268914528499.txt" data-nice-type="Text File" data-file-src="/wiki/download/attachments/7268914397852/vehicle_information_response_json.txt?version=2&amp;modificationDate=1640624990198&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="7268914528499" data-linked-resource-type="attachment" data-linked-resource-container-id="7268914397852" data-linked-resource-default-alias="vehicle_information_response_json.txt" data-mime-type="text/plain" data-has-thumbnail="true" data-linked-resource-version="2" data-media-id="337538fa-361c-4faf-a2f3-aef23c65be30" data-media-type="file"><img src="attachments/thumbnails/7268914397852/7268914528499" height="250"/></a></span></p><p /></td></tr><tr><td class="confluenceTd"><p><strong>200: XML format</strong></p></td><td class="confluenceTd"><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/7268914397852/7268914561164.txt" data-nice-type="Text File" data-file-src="/wiki/download/attachments/7268914397852/vehicle_information_response.txt?version=1&amp;modificationDate=1640625004400&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="7268914561164" data-linked-resource-type="attachment" data-linked-resource-container-id="7268914397852" data-linked-resource-default-alias="vehicle_information_response.txt" data-mime-type="text/plain" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="51a633b4-109e-42c4-ab87-1e7117f9f292" data-media-type="file"><img src="attachments/thumbnails/7268914397852/7268914561164" height="250"/></a></span></p><p /></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Invalid Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>400: JSON format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;LicensePlate&quot;: [
+    &quot;The LicensePlate field is required.&quot;
+  ]
+}</pre>
+</div></div></td></tr><tr><td class="confluenceTd"><p><strong>400: XML format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence">&lt;Error&gt;
+   &lt;LicensePlate&gt;The LicensePlate field is required.&lt;/LicensePlate&gt;
+&lt;/Error&gt;</pre>
+</div></div></td></tr></tbody></table></div><h2 id="VehicleInformation-Responseformatexplanation">Response format explanation</h2><p>The response object returns the following object:</p><div class="table-wrap"><table data-layout="wide" data-local-id="0d40428c-6ae3-4988-8ab0-c932b3b5ac15" class="confluenceTable"><colgroup><col style="width: 203.0px;"/><col style="width: 152.0px;"/><col style="width: 211.0px;"/><col style="width: 390.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In JSON</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p>Description</p></td></tr><tr><td class="confluenceTd"><p>Response Data</p></td><td class="confluenceTd"><p>“responseData”</p></td><td class="confluenceTd"><p>&lt;ResponseData&gt;</p></td><td class="confluenceTd"><p>Array of responses containing a Vehicle Response Item</p></td></tr><tr><td class="confluenceTd"><p>Vehicle Response Item</p></td><td class="confluenceTd"><p>{}</p></td><td class="confluenceTd"><p>&lt;VehicleResponseItem&gt;</p></td><td class="confluenceTd"><p>Item holder containg response information</p></td></tr></tbody></table></div><p> </p><p>The Response Data is an array of responses since there can be multiple actions done on a single endpoint.</p><h3 id="VehicleInformation-VehicleResponseItem">Vehicle Response Item</h3><p>The Vehicle Response Item contains the following properties </p><div class="table-wrap"><table data-layout="wide" data-local-id="ef2a446e-56d0-4c0f-a6a3-3769ff791f8b" class="confluenceTable"><colgroup><col style="width: 171.0px;"/><col style="width: 161.0px;"/><col style="width: 300.0px;"/><col style="width: 324.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In JSON</strong></p></td><td class="confluenceTd"><p><strong>In XML</strong></p></td><td class="confluenceTd"><p>Description</p></td></tr><tr><td class="confluenceTd"><p>Succeeded</p></td><td class="confluenceTd"><p>“succeeded”</p></td><td class="confluenceTd"><p>&lt;Succeeded&gt;</p></td><td class="confluenceTd"><p>Whether this response type succeeded</p></td></tr><tr><td class="confluenceTd"><p>Name</p></td><td class="confluenceTd"><p>“name”</p></td><td class="confluenceTd"><p>&lt;Name&gt;</p></td><td class="confluenceTd"><p>What kind of result of the request is. Can be “information”, “registration”</p></td></tr><tr><td class="confluenceTd"><p>Type</p></td><td class="confluenceTd"><p>“type”</p></td><td class="confluenceTd"><p>&lt;Type&gt;</p></td><td class="confluenceTd"><p>Entity Type, can be “vehicle”</p></td></tr><tr><td class="confluenceTd"><p>Data</p></td><td class="confluenceTd"><p>“data”</p></td><td class="confluenceTd"><p>&lt;Data&gt;</p></td><td class="confluenceTd"><p>Set of properties returned based on the request type and name</p></td></tr><tr><td class="confluenceTd"><p>Data -&gt; Item</p></td><td class="confluenceTd"><p>“{key}”:”{value}”</p></td><td class="confluenceTd"><p>&lt;Item Key=&quot;{key}&quot;&gt; &lt;![CDATA[{key}]]&gt;</p><p>&lt;/Item&gt;</p></td><td class="confluenceTd"><p>Object property of the type. On “information” is the information based on the type. On “registration” is the data returned to relate to the registration.</p></td></tr></tbody></table></div><p> </p><p>As mentioned, the Item is information or registration data from the kind of request.</p><p>For information this can be very dynamic, it depends what kind of subscription you have and which fields that include. </p><p>On registration we return an “id” that is the idenficiation for the registration.</p><h2 id="VehicleInformation-Examples">Examples</h2><p><strong>URL:                       </strong>/api/v1/vehicles/information</p><p><strong>Headers</strong><br/>Content-Type:   application/json<br/>Accept:                 text/xml<br/>Authorization:   Basic &lt;basic&gt;<br/>Content-Length: 49</p><p><strong>Body</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;reference&quot;: &quot;&quot;,
+  &quot;licensePlate&quot;: &quot;99XXXX&quot;
+}
+</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914397852/7268914528506.txt">vehicle_information_response_json.txt</a> (text/plain)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914397852/7268914528499.txt">vehicle_information_response_json.txt</a> (text/plain)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914397852/7268914561164.txt">vehicle_information_response.txt</a> (text/plain)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

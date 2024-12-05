@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Get Documents</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Document-APIs_1582694439.html">Document APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Get Documents
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kavitha Thangappan</span>, last modified on 11 nov., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Customer who wants to fetch document details sends request to this endpoint.</p><p>System fetches all documents from document repository order by Id and each item with display order .</p><p>For using this api, you need to be authorized.</p><p><strong>Authentication</strong></p><p>Please refer to this page. <a class="external-link" href="https://mplusgroup.atlassian.net/wiki/spaces/VDC/pages/edit-v2/1580859442?draftShareId=8afc2d6c-c754-4060-ae7b-bb7dc0f3bab2" rel="nofollow">Authentication APIs - VDC - Confluence (atlassian.net)</a></p><p><strong>Authorization</strong></p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="2d94ae13-c5a7-40cb-b0e9-7dc00669733a" class="confluenceTable"><colgroup><col style="width: 256.0px;"/><col style="width: 424.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/Document/GetDocuments</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">GET</span></p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Token <code>{token from Authorized User}</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p> </p><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence"></pre>
+</div></div><p><strong>Output</strong></p><p>if request is successful , api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: {
+    &quot;items&quot;: [
+      {
+        &quot;name&quot;: &quot;Export documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;Export documenten&quot;,
+            &quot;friendlyName&quot;: &quot;Kentekenbewijs&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 1,
+            &quot;id&quot;: 1
+          },
+          {
+            &quot;name&quot;: &quot;KentekencardVoorzijde&quot;,
+            &quot;friendlyName&quot;: &quot;Kentekencard voorzijde&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 2,
+            &quot;id&quot;: 6
+          },
+          {
+            &quot;name&quot;: &quot;KentekencardAchterzijde&quot;,
+            &quot;friendlyName&quot;: &quot;Kentekencard achterzijde&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 3,
+            &quot;id&quot;: 7
+          },
+          {
+            &quot;name&quot;: &quot;KentekencardVoorEnAchterzijde&quot;,
+            &quot;friendlyName&quot;: &quot;Kentekencard voor- en achterzijde&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 4,
+            &quot;id&quot;: 53
+          },
+          {
+            &quot;name&quot;: &quot;KentekenbewijsDeel2&quot;,
+            &quot;friendlyName&quot;: &quot;Uitvoerverklaring&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 7,
+            &quot;id&quot;: 9
+          },
+          {
+            &quot;name&quot;: &quot;CertificaatVanOorsprong&quot;,
+            &quot;friendlyName&quot;: &quot;EG-Typegoedkeuringsverklaring&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 100,
+            &quot;id&quot;: 12
+          },
+          {
+            &quot;name&quot;: &quot;Voertuiggegevens&quot;,
+            &quot;friendlyName&quot;: &quot;Voertuig informatie&quot;,
+            &quot;template&quot;: &quot;VDC Voertuig informatie formulier.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 101,
+            &quot;id&quot;: 11
+          },
+          {
+            &quot;name&quot;: &quot;EuroCertificaat&quot;,
+            &quot;friendlyName&quot;: &quot;Eurocertificaat&quot;,
+            &quot;template&quot;: &quot;EURO.pdf&quot;,
+            &quot;documentGroupId&quot;: 1,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 102,
+            &quot;id&quot;: 13
+          }
+        ],
+        &quot;id&quot;: 1
+      },
+      {
+        &quot;name&quot;: &quot;Aanvullende documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;TransportdocumentIndeWal&quot;,
+            &quot;friendlyName&quot;: &quot;Transport document voor In de Wal&quot;,
+            &quot;template&quot;: &quot;vervoersverklaring In De Wal.pdf&quot;,
+            &quot;documentGroupId&quot;: 2,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 504,
+            &quot;id&quot;: 40
+          },
+          {
+            &quot;name&quot;: &quot;AanvraagformulierZoll&quot;,
+            &quot;friendlyName&quot;: &quot;Aanvraag formulier Zoll&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 2,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 508,
+            &quot;id&quot;: 303
+          },
+          {
+            &quot;name&quot;: &quot;LegitimatieDocument&quot;,
+            &quot;friendlyName&quot;: &quot;Legitimatie document&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 2,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 509,
+            &quot;id&quot;: 304
+          },
+          {
+            &quot;name&quot;: &quot;SEPA&quot;,
+            &quot;friendlyName&quot;: &quot;SEPA formulier&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 2,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 510,
+            &quot;id&quot;: 305
+          },
+          {
+            &quot;name&quot;: &quot;InnameInspectie&quot;,
+            &quot;friendlyName&quot;: &quot;Inspectierapport&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 2,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 511,
+            &quot;id&quot;: 306
+          }
+        ],
+        &quot;id&quot;: 2
+      },
+      {
+        &quot;name&quot;: &quot;Administratieve documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;Machtiging&quot;,
+            &quot;friendlyName&quot;: &quot;Machtiging&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 3,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 600,
+            &quot;id&quot;: 60
+          },
+          {
+            &quot;name&quot;: &quot;Tenaamstellingsverslag&quot;,
+            &quot;friendlyName&quot;: &quot;Tenaamstelling verslag&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 3,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 601,
+            &quot;id&quot;: 61
+          },
+          {
+            &quot;name&quot;: &quot;TenaamstellingsVrijwaring&quot;,
+            &quot;friendlyName&quot;: &quot;Tenaamstelling vrijwaring&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 3,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 602,
+            &quot;id&quot;: 62
+          },
+          {
+            &quot;name&quot;: &quot;Exportbewijs&quot;,
+            &quot;friendlyName&quot;: &quot;Exportbewijs&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 3,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 23
+          }
+        ],
+        &quot;id&quot;: 3
+      },
+      {
+        &quot;name&quot;: &quot;BPM Archief&quot;,
+        &quot;items&quot;: [],
+        &quot;id&quot;: 5
+      },
+      {
+        &quot;name&quot;: &quot;Aanvraag documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;VolmachtBorken&quot;,
+            &quot;friendlyName&quot;: &quot;VolmachtBorken&quot;,
+            &quot;template&quot;: &quot;VolmachtBorken.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 100
+          },
+          {
+            &quot;name&quot;: &quot;VolmachtKleve&quot;,
+            &quot;friendlyName&quot;: &quot;VolmachtKleve&quot;,
+            &quot;template&quot;: &quot;VolmachtKleve.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 101
+          },
+          {
+            &quot;name&quot;: &quot;VolmachtHeidelberg&quot;,
+            &quot;friendlyName&quot;: &quot;VolmachtHeidelberg&quot;,
+            &quot;template&quot;: &quot;VolmachtHeidelberg.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 102
+          },
+          {
+            &quot;name&quot;: &quot;VolmachtMeppen&quot;,
+            &quot;friendlyName&quot;: &quot;VolmachtMeppen&quot;,
+            &quot;template&quot;: &quot;VolmachtMeppen.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 103
+          },
+          {
+            &quot;name&quot;: &quot;RechtsverbintlicheErklaerungBorken&quot;,
+            &quot;friendlyName&quot;: &quot;RechtsverbintlicheErklaerungBorken&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 110
+          },
+          {
+            &quot;name&quot;: &quot;RechtsverbintlicheErklaerungKleve&quot;,
+            &quot;friendlyName&quot;: &quot;RechtsverbintlicheErklaerungKleve&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 111
+          },
+          {
+            &quot;name&quot;: &quot;RechtsverbintlicheErklaerungWiesloch&quot;,
+            &quot;friendlyName&quot;: &quot;RechtsverbintlicheErklaerungWiesloch&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 112
+          },
+          {
+            &quot;name&quot;: &quot;RechtsverbintlicheErklaerungLingen&quot;,
+            &quot;friendlyName&quot;: &quot;RechtsverbintlicheErklaerungLingen&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 113
+          },
+          {
+            &quot;name&quot;: &quot;AanmeldSet&quot;,
+            &quot;friendlyName&quot;: &quot;AanmeldSet&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 8,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 200
+          }
+        ],
+        &quot;id&quot;: 8
+      },
+      {
+        &quot;name&quot;: &quot;Legitimatie documenten&quot;,
+        &quot;items&quot;: [],
+        &quot;id&quot;: 10
+      },
+      {
+        &quot;name&quot;: &quot;Belasting documenten&quot;,
+        &quot;items&quot;: [],
+        &quot;id&quot;: 20
+      },
+      {
+        &quot;name&quot;: &quot;Klantspecifieke documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;Identiteitsbewijs&quot;,
+            &quot;friendlyName&quot;: &quot;Identiteitsbewijs&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 30,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 1,
+            &quot;id&quot;: 601
+          },
+          {
+            &quot;name&quot;: &quot;Volmacht&quot;,
+            &quot;friendlyName&quot;: &quot;Volmacht&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 30,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 10,
+            &quot;id&quot;: 602
+          },
+          {
+            &quot;name&quot;: &quot;KamervanKoophandel&quot;,
+            &quot;friendlyName&quot;: &quot;Kamer van Koophandel&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 30,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 20,
+            &quot;id&quot;: 603
+          },
+          {
+            &quot;name&quot;: &quot;BTWcheck&quot;,
+            &quot;friendlyName&quot;: &quot;BTW-check&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 30,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 30,
+            &quot;id&quot;: 604
+          },
+          {
+            &quot;name&quot;: &quot;MailNieuweAfnemerBelastingdienst&quot;,
+            &quot;friendlyName&quot;: &quot;Eerste klantcontact&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 30,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 40,
+            &quot;id&quot;: 605
+          },
+          {
+            &quot;name&quot;: &quot;OverigeDocumenten&quot;,
+            &quot;friendlyName&quot;: &quot;Overige documenten&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 30,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 50,
+            &quot;id&quot;: 606
+          }
+        ],
+        &quot;id&quot;: 30
+      },
+      {
+        &quot;name&quot;: &quot;VDC-archief&quot;,
+        &quot;items&quot;: [],
+        &quot;id&quot;: 50
+      },
+      {
+        &quot;name&quot;: &quot;Fiscale documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;Inkomend&quot;,
+            &quot;friendlyName&quot;: &quot;CMR inkomend&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 1,
+            &quot;id&quot;: 71
+          },
+          {
+            &quot;name&quot;: &quot;Uitgaand&quot;,
+            &quot;friendlyName&quot;: &quot;CMR uitgaand&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 2,
+            &quot;id&quot;: 72
+          },
+          {
+            &quot;name&quot;: &quot;BpmRestitutie&quot;,
+            &quot;friendlyName&quot;: &quot;BPM &quot;,
+            &quot;template&quot;: &quot;Aanvraag Bpm Restitutie.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 6,
+            &quot;id&quot;: 4
+          },
+          {
+            &quot;name&quot;: &quot;Aanvraag documenten&quot;,
+            &quot;friendlyName&quot;: &quot;BPM set&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 8,
+            &quot;id&quot;: 8
+          },
+          {
+            &quot;name&quot;: &quot;Groenekaart&quot;,
+            &quot;friendlyName&quot;: &quot;WA verzekering&quot;,
+            &quot;template&quot;: &quot;GroenekaartTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 103,
+            &quot;id&quot;: 14
+          },
+          {
+            &quot;name&quot;: &quot;UniformeVervoersverklaring&quot;,
+            &quot;friendlyName&quot;: &quot;Vervoersverklaring&quot;,
+            &quot;template&quot;: &quot;UniformeVervoersverklaring.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 504,
+            &quot;id&quot;: 41
+          },
+          {
+            &quot;name&quot;: &quot;Factuur&quot;,
+            &quot;friendlyName&quot;: &quot;Factuur&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 506,
+            &quot;id&quot;: 300
+          },
+          {
+            &quot;name&quot;: &quot;CMR&quot;,
+            &quot;friendlyName&quot;: &quot;CMR&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: false,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 512,
+            &quot;id&quot;: 307
+          },
+          {
+            &quot;name&quot;: &quot;Klantspecifieke documenten&quot;,
+            &quot;friendlyName&quot;: &quot;BPM&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 51,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 30
+          }
+        ],
+        &quot;id&quot;: 51
+      },
+      {
+        &quot;name&quot;: &quot;RDW documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;Aanvullende documenten&quot;,
+            &quot;friendlyName&quot;: &quot;APK keuringsrapport&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 52,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 4,
+            &quot;id&quot;: 2
+          },
+          {
+            &quot;name&quot;: &quot;BPM Archief&quot;,
+            &quot;friendlyName&quot;: &quot;EU Toelating&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 52,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 5,
+            &quot;id&quot;: 5
+          },
+          {
+            &quot;name&quot;: &quot;Vrijwaringsbewijs&quot;,
+            &quot;friendlyName&quot;: &quot;Vrijwaringsbewijs inkoop&quot;,
+            &quot;template&quot;: &quot;Vrijwaringsbewijs.Pdf&quot;,
+            &quot;documentGroupId&quot;: 52,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 500,
+            &quot;id&quot;: 21
+          },
+          {
+            &quot;name&quot;: &quot;Bedrijfsvoorraad&quot;,
+            &quot;friendlyName&quot;: &quot;Bedrijfsvoorraad&quot;,
+            &quot;template&quot;: &quot;Bedrijfsvoorraad.pdf&quot;,
+            &quot;documentGroupId&quot;: 52,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 501,
+            &quot;id&quot;: 22
+          },
+          {
+            &quot;name&quot;: &quot;TijdelijkDocumentnummerEnTtenaamstellingscode&quot;,
+            &quot;friendlyName&quot;: &quot;Tenaamstellingscode&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 52,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 502,
+            &quot;id&quot;: 25
+          },
+          {
+            &quot;name&quot;: &quot;Tellerstand&quot;,
+            &quot;friendlyName&quot;: &quot;Tellerstand&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 52,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: true,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 503,
+            &quot;id&quot;: 26
+          }
+        ],
+        &quot;id&quot;: 52
+      },
+      {
+        &quot;name&quot;: &quot;Overige documenten&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;name&quot;: &quot;ExaDocument&quot;,
+            &quot;friendlyName&quot;: &quot;EX-A&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 104,
+            &quot;id&quot;: 19
+          },
+          {
+            &quot;name&quot;: &quot;Belasting documenten&quot;,
+            &quot;friendlyName&quot;: &quot;Confirmation of Exit&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 105,
+            &quot;id&quot;: 20
+          },
+          {
+            &quot;name&quot;: &quot;Paspoort&quot;,
+            &quot;friendlyName&quot;: &quot;Paspoort&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 505,
+            &quot;id&quot;: 50
+          },
+          {
+            &quot;name&quot;: &quot;Identiteiskaart&quot;,
+            &quot;friendlyName&quot;: &quot;Identiteiskaart&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 505,
+            &quot;id&quot;: 51
+          },
+          {
+            &quot;name&quot;: &quot;Rijbewijs&quot;,
+            &quot;friendlyName&quot;: &quot;Rijbewijs&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 505,
+            &quot;id&quot;: 52
+          },
+          {
+            &quot;name&quot;: &quot;Ondertekende Koopovereenkomst&quot;,
+            &quot;friendlyName&quot;: &quot;Koopovereenkomst&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 507,
+            &quot;id&quot;: 301
+          },
+          {
+            &quot;name&quot;: &quot;Vies&quot;,
+            &quot;friendlyName&quot;: &quot;Betalingsbewijs&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 513,
+            &quot;id&quot;: 308
+          },
+          {
+            &quot;name&quot;: &quot;Paspoort&quot;,
+            &quot;friendlyName&quot;: &quot;Paspoort&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: false,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 514,
+            &quot;id&quot;: 501
+          },
+          {
+            &quot;name&quot;: &quot;Administratieve documenten&quot;,
+            &quot;friendlyName&quot;: &quot;Uitvoerverklaring&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: true,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: true,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 3
+          },
+          {
+            &quot;name&quot;: &quot;Uitvoerverklaring&quot;,
+            &quot;friendlyName&quot;: &quot;Uitvoerverklaring&quot;,
+            &quot;template&quot;: &quot;EmptyTemplate.pdf&quot;,
+            &quot;documentGroupId&quot;: 53,
+            &quot;canUploadBySubscriber&quot;: false,
+            &quot;canUploadByVdc&quot;: true,
+            &quot;canRequest&quot;: false,
+            &quot;canDownload&quot;: true,
+            &quot;validationByVdc&quot;: false,
+            &quot;lastModifiedOn&quot;: &quot;0001-01-01T00:00:00&quot;,
+            &quot;displayOrder&quot;: 999,
+            &quot;id&quot;: 24
+          }
+        ],
+        &quot;id&quot;: 53
+      }
+    ]
+  },
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null,
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}</pre>
+</div></div><p> </p><p /><p><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

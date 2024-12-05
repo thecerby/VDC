@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : [BCA] Vehicle Registration</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Overview-VDC-Projects_1129775105.html">Overview VDC Projects</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DataXpert_1129906187.html">DataXpert</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Vehicle-Registration_7268914790421.html">Vehicle Registration</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : [BCA] Vehicle Registration
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 29 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Each account that is used relates to a specific tenant, all API’s are scoped to this tenant.<br/>Below you can find the swagger definition in JSON format.</p><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/7268914561145/7268914299600.json" data-nice-type="null" data-file-src="/wiki/download/attachments/7268914561145/bca-v1-swagger.json?version=1&amp;modificationDate=1640624489125&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="7268914299600" data-linked-resource-type="attachment" data-linked-resource-container-id="7268914561145" data-linked-resource-default-alias="bca-v1-swagger.json" data-mime-type="application/json" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="8680a4a8-d3e1-4f31-91c7-ec23d5981820" data-media-type="file"><img src="attachments/thumbnails/7268914561145/7268914299600" height="250"/></a></span></p><p>This Swagger definition can be used in the following tools:</p><ul><li><p>SoapUI</p></li></ul><ul><li><p>Postman</p></li></ul><ul><li><p>Swagger Editor</p></li></ul><p>base_url:             /api/v1/bca/vehicles</p><h2 id="id-[BCA]VehicleRegistration-Registration">Registration</h2><p>Registers the vehicle as ‘new’ in the RegistratieXpert. <br/>The following data will be enriched in the RegistratieXpert outside the supplied data upon registration;</p><ul><li><p>Reliability of odometer (NAP check)</p></li></ul><ul><li><p>Ovi vehicle information</p></li></ul><ul><li><p>Vehicle information document (VoertuigGegevens)</p></li></ul><ul><li><p>Certificate of Origin document (CvO)</p></li></ul><ul><li><p>Euro Certificate (Euro Certificaat)</p></li></ul><ul><li><p>Checks in RDW if the vehicle is on company stock (marks as in stock yes/no)</p></li></ul><p>The registration is accepted as is, if – for example – the reportCode is invalid, the vehicle is still created along with the specified buyer (if applicable) but without the CvO.</p><p> </p><p>If the transaction is expected to fail, please contact VDC for additional requirements.</p><div class="table-wrap"><table data-layout="wide" data-local-id="e7ed8fdb-8bb7-419c-a1a0-5900caca1bc6" class="confluenceTable"><colgroup><col style="width: 215.0px;"/><col style="width: 743.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>URL</strong></p></td><td class="confluenceTd"><p>{base_url}/registration</p></td></tr><tr><td class="confluenceTd"><p><strong>Method (Verb)</strong></p></td><td class="confluenceTd"><p>POST</p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json</p><p>Content-Type: application/json</p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameter</strong></p></td><td class="confluenceTd"><ul><li><p>Reference (optional)</p></li></ul><ul><li><p>License Plate (required)</p></li></ul><ul><li><p>Report Code (required)</p></li></ul><ul><li><p>Counter Position (required)</p></li></ul><ul><li><p>CounterType (required) = K(ilometers) or M(iles)</p></li></ul><ul><li><p>DuplicateCode(required when documentNumber is empty)</p></li></ul><ul><li><p>CharacterCheck (required when documentNumber is empty)</p></li></ul><ul><li><p>Document Number (required duplicate code is empty)</p></li></ul><ul><li><p>AttendanceCode1 (required when Document Number is not empty)</p></li></ul><ul><li><p>Attendance Code2 (required when Document Number is not empty)</p></li></ul><ul><li><p>Buyer (optional)</p></li></ul><p>o    Id (required)</p><p>o    Name (required)</p><p>o    SearchName (optional), falls back to Name</p><p>o    VAT ID (optional)</p><p>o    Address (required)</p><p>§  Street (required)</p><p>§  Postal Code (required)</p><p>§  City (required)</p><p>§  Country Code (required, 3-letter <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_3166-1" rel="nofollow">ISO 3166-1</a>)</p><p>o   Contact (optional)</p><p>§  Email (optional)</p><p>§  Phone (optional, array)</p><p>·         Type: (required), options: landline, mobile</p><p>·         Number (required)</p></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Request body</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>JSON format</strong></p><p><strong> </strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;reference&quot;: &quot;string&quot;,
+  &quot;licensePlate&quot;: &quot;string&quot;,
+  &quot;reportCode&quot;: &quot;string&quot;,
+  &quot;counterPosition&quot;: 0,
+  &quot;counterType&quot;: &quot;string&quot;,
+  &quot;documentNumber&quot;: &quot;string&quot;,
+  &quot;attendanceCode1&quot;: &quot;string&quot;,
+  &quot;attendanceCode2&quot;: &quot;string&quot;,
+  &quot;duplicateCode&quot;: &quot;string&quot;,
+  &quot;characterCheck&quot;: &quot;string&quot;,	
+  &quot;buyer&quot;: {
+    &quot;id&quot;: &quot;string&quot;,
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;searchName&quot;: &quot;string&quot;,
+    &quot;vatId&quot;: &quot;string&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;string&quot;,
+      &quot;postalCode&quot;: &quot;string&quot;,
+      &quot;city&quot;: &quot;string&quot;,
+      &quot;countryCode&quot;: &quot;string&quot;,
+    },
+    &quot;contact&quot;: {
+      &quot;email&quot;: &quot;string&quot;,
+      &quot;phone&quot;: [{
+        &quot;type&quot;: &quot;landline&quot;,
+        &quot;number&quot;: &quot;string&quot;
+      },{
+        &quot;type&quot;: &quot;mobile&quot;,
+        &quot;number&quot;: &quot;string&quot;
+      }]
+    }
+  }
+}
+</pre>
+</div></div></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Success Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>Response JSON: 200</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;responseData&quot;: [
+    {
+      &quot;succeeded&quot;: true,
+      &quot;name&quot;: &quot;registration&quot;,
+      &quot;type&quot;: &quot;vehicle&quot;,
+      &quot;data&quot;: {
+        &quot;id&quot;: &quot;d60316ae-f31d-4031-18d6-08d526f645dc&quot;
+      }
+    }
+  ]
+}</pre>
+</div></div></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Invalid Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>400 / JSON</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;LicensePlate&quot;: [
+    &quot;The LicensePlate field is required.&quot;
+  ]
+}</pre>
+</div></div></td></tr></tbody></table></div><h2 id="id-[BCA]VehicleRegistration-Responseformatexplanation">Response format explanation</h2><p>The response object returns the following object:</p><div class="table-wrap"><table data-layout="wide" data-local-id="607fd4bd-9faa-4b85-9215-b069e6c59ec1" class="confluenceTable"><colgroup><col style="width: 260.0px;"/><col style="width: 162.0px;"/><col style="width: 535.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In JSON</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td></tr><tr><td class="confluenceTd"><p>Response Data</p></td><td class="confluenceTd"><p>“responseData”</p></td><td class="confluenceTd"><p>Array of responses containing a Vehicle Response Item</p></td></tr><tr><td class="confluenceTd"><p>Vehicle Response Item</p></td><td class="confluenceTd"><p>{}</p></td><td class="confluenceTd"><p>Item holder containing response information</p></td></tr></tbody></table></div><p> The Response Data is an array of responses since there can be multiple actions done on a single endpoint.</p><h3 id="id-[BCA]VehicleRegistration-VehicleResponseItem">Vehicle Response Item</h3><p>The Vehicle Response Item contains the following properties </p><div class="table-wrap"><table data-layout="wide" data-local-id="514194e5-8c39-49fb-a7ab-5672d559dd1b" class="confluenceTable"><colgroup><col style="width: 203.0px;"/><col style="width: 163.0px;"/><col style="width: 594.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In JSON</strong></p></td><td class="confluenceTd"><p><strong>Description</strong></p></td></tr><tr><td class="confluenceTd"><p>Succeeded</p></td><td class="confluenceTd"><p>“succeeded”</p></td><td class="confluenceTd"><p>Whether this response type succeeded</p></td></tr><tr><td class="confluenceTd"><p>Name</p></td><td class="confluenceTd"><p>“name”</p></td><td class="confluenceTd"><p>What kind of result of the request is. Can be “information”, “registration”</p></td></tr><tr><td class="confluenceTd"><p>Type</p></td><td class="confluenceTd"><p>“type”</p></td><td class="confluenceTd"><p>Entity Type, can be “vehicle”</p></td></tr><tr><td class="confluenceTd"><p>Data</p></td><td class="confluenceTd"><p>“data”</p></td><td class="confluenceTd"><p>Set of properties returned based on the request type and name</p></td></tr><tr><td class="confluenceTd"><p>Data -&gt; Item</p></td><td class="confluenceTd"><p>“{key}”:”{value}”</p></td><td class="confluenceTd"><p>Object property of the type. On “information” is the information based on the type. On “registration” is the data returned to relate to the registration.</p></td></tr></tbody></table></div><p>As mentioned, the Item is information or registration data from the kind of request.</p><p>For information this can be very dynamic, it depends what kind of subscription you have and which fields that include. </p><p>On registration we return an “id” that is the identification for the registration </p><h2 id="id-[BCA]VehicleRegistration-Examples">Examples<strong> </strong></h2><p><strong>URL:       </strong>                /api/v1/bca/vehicles/registration</p><p><strong>Headers</strong><br/>Content-Type:   application/json,<br/>Accept:                 application/json<br/>Authorization:   Basic YWJjOjEyMw==</p><p><strong>Body</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;reference&quot;: &quot;test&quot;,
+	&quot;licensePlate&quot;: &quot;1TES001&quot;,
+	&quot;reportCode&quot;: &quot;1234&quot;,
+	&quot;counterPosition&quot;: 125000,
+	&quot;counterType&quot;: &quot;K&quot;,
+	&quot;documentNumber&quot;: &quot;1234567891&quot;,
+	&quot;attendanceCode1&quot;: &quot;1234&quot;,
+	&quot;attendanceCode2&quot;: &quot;56789&quot;,
+	&quot;buyer&quot;: {
+		&quot;id&quot;: &quot;alphanumericId&quot;,
+		&quot;name&quot;: &quot;Customer name&quot;,
+		&quot;searchName&quot;: &quot;name&quot;,
+		&quot;vatId&quot;: &quot;NL000099998B57&quot;,
+		&quot;address&quot;: {
+		  &quot;street&quot;: &quot;De Overmaat 42A&quot;,
+		  &quot;postalCode&quot;: &quot;6831AJ&quot;,
+		  &quot;city&quot;: &quot;Arnhem&quot;,
+		  &quot;countryCode&quot;: &quot;NLD&quot;
+		},
+		&quot;contact&quot;: {
+		  &quot;email&quot;: &quot;info@vdcnederland.eu&quot;,
+		  &quot;phone&quot;: [
+			{
+			  &quot;type&quot;: &quot;landline&quot;,
+			  &quot;number&quot;: &quot;0263230960&quot;
+			}
+		  ]
+		}
+	}
+}
+</pre>
+</div></div><hr/><p><strong>URL:       </strong>                /api/v1/bca/vehicles/registration<br/><strong>Headers</strong><br/>Content-Type:   application/json,<br/>Accept:                 application/json<br/>Authorization:   Basic YWJjOjEyMw==<br/>Host:                     <a class="external-link" href="http://test.registratiexpert.nl:8443" rel="nofollow">test.registratiexpert.nl:8443</a></p><p> </p><p><strong>Body</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+	&quot;reference&quot;: &quot;test&quot;,
+	&quot;licensePlate&quot;: &quot;1TES001&quot;,
+	&quot;reportCode&quot;: &quot;1234&quot;,
+	&quot;counterPosition&quot;: 125000,
+	&quot;counterType&quot;: &quot;K&quot;,
+	&quot;documentNumber&quot;: &quot;1234567891&quot;,
+	&quot;attendanceCode1&quot;: &quot;1234&quot;,
+	&quot;attendanceCode2&quot;: &quot;56789&quot;
+}</pre>
+</div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268914561145/7268914299600.json">bca-v1-swagger.json</a> (application/json)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

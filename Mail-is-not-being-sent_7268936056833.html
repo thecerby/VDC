@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Mail is not being sent</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to-articles_7268936286209.html">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Mail is not being sent
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 23 mrt., 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>It is possible that a customer of VDC will complain about emails not being sent. Follow the below procedure to identify the issue.</p><h2 id="Mailisnotbeingsent-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p>To identify if this is an issue on server side, try the following</p><ul><li><p>Go to the SQL Server and run the following query, this will return the records pending to be sent.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">SELECT TOP 100 * FROM VDC_RE.dbo.TblMailRequests 
+WHERE PROCESS_ID IS NULL AND CREATED &gt; dateadd(MM, -1, getdate())</pre>
+</div></div></li></ul><p>If the above does return records, follow the below procedure:</p><ol><li><p>Go to the portal server and check for the SMTP handler</p></li><li><p>Turn it off and start it with the shortcut found in the dashboard named <code>SMTP Handler (Mail portal)</code></p></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>It will ask you for some parameters, just hit OK with the default values.</p></div></div><p> 3. Re-run the query to see if the number of records will drop, this could take a couple of minutes.</p><p>If all is looking OK, check with the customer on which address the email is sent to and check in Sendgrid if the email is sent.</p><h2 id="Mailisnotbeingsent-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204560" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/VDC/pages/7268964204560/Deploy+RegistratieXpert+changes+to+environment">Deploy RegistratieXpert changes to [environment]</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7269000675332" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7269000675332/Fix+BPM+set+on+vehicle">Fix BPM set on vehicle</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204573" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268964204573/Could+not+create+SSL+TLS+secure+channel.">Could not create SSL/TLS secure channel.</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268936056833" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268936056833/Mail+is+not+being+sent">Mail is not being sent</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268907516136" data-linked-resource-type="page" data-linked-resource-version="12" href="/wiki/spaces/VDC/pages/7268907516136/OrbServiceTest+uitleg">OrbServiceTest uitleg</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

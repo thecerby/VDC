@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Detect Check</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Overview-VDC-Projects_1129775105.html">Overview VDC Projects</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="DataXpert_1129906187.html">DataXpert</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Detect Check
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span>, last modified on 12 okt., 2023
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>base_url:             /api/v1/vehicles/insurance</p><p>Checks the user if it is eligible to provide an insurance</p><div class="table-wrap"><table data-table-width="960" data-layout="wide" data-local-id="eda09c74-8bb1-4b96-9219-a9e4672968b3" class="confluenceTable"><colgroup><col style="width: 174.0px;"/><col style="width: 784.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>URL</strong></p></td><td class="confluenceTd"><p>{base_url}/api/v1/vehicles/insurance/check</p></td></tr><tr><td class="confluenceTd"><p><strong>Method (Verb)</strong></p></td><td class="confluenceTd"><p>POST</p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json</p><p>Content-Type: application/json</p><p>OR</p><p>Accept: text/xml<br/>Content-Type: text/xml</p></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Request body</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>JSON format</strong></p><p><strong> </strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;achternaam&quot;: &quot;string&quot;,
+  &quot;voornaam&quot;: &quot;string&quot;,
+  &quot;initialen&quot;: &quot;string&quot;,
+  &quot;tussenvoegsel&quot;: &quot;string, optional&quot;,
+  &quot;geboortedatum&quot;: &quot; dd-MM-yyyy&quot;,
+  &quot;postcode&quot;: &quot;string, specify when it is for private use&quot;,
+  &quot;huisnummer&quot;: &quot;string, specify when it is for private use&quot;,
+  &quot;straat&quot;: &quot;string, specify when it is for private use&quot;,
+  &quot;plaats&quot;: &quot;string, specify when it is for private use&quot;,
+  &quot;land&quot;: &quot;string, specify when it is for private use&quot;
+}
+</pre>
+</div></div></td></tr><tr><td colspan="2" class="confluenceTd"><p><strong>Success Responses</strong></p></td></tr><tr><td class="confluenceTd"><p><strong>200: JSON format</strong></p></td><td class="confluenceTd"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;isAccepted&quot;: true,
+  &quot;score&quot;: 11,
+  &quot;alertId&quot;: 66665,
+  &quot;argumentation&quot;: &quot;GROEN: Geen match op sanctie- of PEP-lijst&quot;,
+  &quot;indicators&quot;: [],
+  &quot;logVariables&quot;: [],
+  &quot;warnings&quot;: []
+}</pre>
+</div></div></td></tr></tbody></table></div><p> </p><h2 id="DetectCheck-Responseformatexplanation">Response format explanation</h2><p> The response object returns the following object:</p><div class="table-wrap"><table data-table-width="760" data-layout="default" data-local-id="3a12c957-a5d7-48a1-b267-c00ef307ce66" class="confluenceTable"><colgroup><col style="width: 168.0px;"/><col style="width: 177.0px;"/><col style="width: 411.0px;"/></colgroup><tbody><tr><td class="confluenceTd"><p><strong>Property</strong></p></td><td class="confluenceTd"><p><strong>In JSON</strong></p></td><td class="confluenceTd"><p>Description</p></td></tr><tr><td class="confluenceTd"><p>Is Accepted</p></td><td class="confluenceTd"><p>“isAccepted”</p></td><td class="confluenceTd"><p>Determines if the check has been accepted, this Boolean defines  if you can provide the insurance</p></td></tr><tr><td class="confluenceTd"><p>Argumentation</p></td><td class="confluenceTd"><p>“argumentation”</p></td><td class="confluenceTd"><p>Detailed response on the check</p></td></tr><tr><td class="confluenceTd"><p>Score</p></td><td class="confluenceTd"><p>“score”</p></td><td class="confluenceTd"><p>Defines the score of the check</p></td></tr><tr><td class="confluenceTd"><p>Indicators</p></td><td class="confluenceTd"><p>“indicatiors”</p></td><td class="confluenceTd"><p>List of possible indications on the check.</p></td></tr></tbody></table></div><h2 id="DetectCheck-Examples">Examples</h2><h3 id="DetectCheck-Accepted"><u>Accepted</u></h3><p><strong>URL:       </strong>                /api/v1/vehicles/insurance/check<br/><strong>Headers</strong><br/>Content-Type:   application/json,<br/>Accept:                 application/json<br/>Authorization:   Basic &lt;base64 credentials&gt;<br/>Host:                     <a class="external-link" href="http://test.registratiexpert.nl:8443" rel="nofollow">test.registratiexpert.nl:8443</a></p><p><strong>Body</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+   &quot;achternaam&quot;: &quot;test&quot;,
+  &quot;voornaam&quot;: &quot;test&quot;,
+  &quot;initialen&quot;: &quot;T&quot;,
+  &quot;tussenvoegsel&quot;: &quot;van&quot;,
+  &quot;geboortedatum&quot;: &quot; 01-01-1980&quot;,
+  &quot;postcode&quot;: &quot;2404HH&quot;,
+  &quot;huisnummer&quot;: &quot;131&quot;,
+  &quot;straat&quot;: &quot;Hoorn&quot;,
+  &quot;plaats&quot;: &quot;Alphen aan den Rijn&quot;,
+  &quot;land&quot;: &quot;Nederland&quot;
+}
+</pre>
+</div></div><h3 id="DetectCheck-Notaccepted"><u>Not accepted</u></h3><p><strong>URL:       </strong>                /api/v1/vehicles/insurance/check<br/><strong>Headers</strong><br/>Content-Type:   application/json,<br/>Accept:                 application/json<br/>Authorization:   Basic &lt;base64 credentials&gt;<br/>Host:                     <a class="external-link" href="http://test.registratiexpert.nl:8443" rel="nofollow">test.registratiexpert.nl:8443</a></p><p><strong>Body</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+   &quot;achternaam&quot;: &quot;Mugabe&quot;,
+  &quot;voornaam&quot;: &quot;Robert&quot;,
+  &quot;initialen&quot;: &quot;RG&quot;,
+  &quot;geboortedatum&quot;: &quot;21-02-1924&quot;
+}</pre>
+</div></div><p> </p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

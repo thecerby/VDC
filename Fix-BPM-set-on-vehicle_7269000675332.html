@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Fix BPM set on vehicle</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="How-to-articles_7268936286209.html">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Fix BPM set on vehicle
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 27 okt., 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article will describe how you can fix the BPM set if it complies to the below conditions;</p><ul><li><p>Vehicle has been exported via BPM base or BPM digital</p></li><li><p>Document <code>EU toelating</code> is added</p></li><li><p>Document <code>BPM</code> is missing.</p></li></ul><h2 id="FixBPMsetonvehicle-Instructions"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Instructions</h2><p>Log in to the corresponding tenant and search the vehicle</p><ol><li><p>Open up the developer tools and look into network</p></li><li><p>Now select the vehicle so it expands the right-bar with the vehicle information</p></li><li><p>Grab the Vehicle Id from the parameters<br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7269000675332/7269000642570.png" data-image-src="attachments/7269000675332/7269000642570.png" data-height="467" data-width="1127" data-unresolved-comment-count="0" data-linked-resource-id="7269000642570" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20221027-105035.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7269000675332" data-linked-resource-container-version="1" data-media-id="c6b71906-5875-4f20-a340-f589a9f261c1" data-media-type="file"></span></li><li><p>Log into the SQL Server environment, this can be done through RDP or direct SQL connection if you are in M+ network.</p></li><li><p>Copy the following query, change the parameter values and execute<br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">DECLARE @RC int
+DECLARE @VoertuigId uniqueidentifier
+DECLARE @Kenteken varchar(10)
+DECLARE @AbonneeNummer int
+
+-- TODO: Set parameter values here.
+SET @VoertuigId = &#39;&lt;vehicleId you copied&gt;&#39;
+
+EXECUTE @RC = [dbo].[VDC_AddMissingBpmDocuments] 
+   @VoertuigId
+  ,@Kenteken
+  ,@AbonneeNummer
+GO</pre>
+</div></div></li></ol><div class="panel" style="background-color: #EAE6FF;border-color: #998DD9;border-width: 1px;"><div class="panelContent" style="background-color: #EAE6FF;">
+<p>When the SQL query succesfully executes, you’ll get 3 records affected, it will look something like below</p>
+</div></div><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/7269000675332/7269000708110.png" data-image-src="attachments/7269000675332/7269000708110.png" data-height="112" data-width="366" data-unresolved-comment-count="0" data-linked-resource-id="7269000708110" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20221027-105542.png" data-base-url="https://sowedo.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7269000675332" data-linked-resource-container-version="1" data-media-id="8959ae3a-3376-49ea-b4d4-d90254ec727c" data-media-type="file"></span><p>6. Now go back to the browser and re-open the vehicle information, navigate to the tab ‘Documents’.<br/>You’ll see that the <code>BPM</code> document is now added. Click on the card icon to generate the document.</p><p>7. Now, recreate the <code>BPM set</code> thesame way, it shall ask you to recreate it, click yes.</p><p>Finally, check the document of <code>BPM set</code> and see if you have a document included of <code>Belastingdienst</code></p><h2 id="FixBPMsetonvehicle-Relatedarticles"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="\uD83D\uDCCB" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/> Related articles</h2><p></p>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204560" data-linked-resource-type="page" data-linked-resource-version="5" href="/wiki/spaces/VDC/pages/7268964204560/Deploy+RegistratieXpert+changes+to+environment">Deploy RegistratieXpert changes to [environment]</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7269000675332" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7269000675332/Fix+BPM+set+on+vehicle">Fix BPM set on vehicle</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268964204573" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268964204573/Could+not+create+SSL+TLS+secure+channel.">Could not create SSL/TLS secure channel.</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268936056833" data-linked-resource-type="page" data-linked-resource-version="1" href="/wiki/spaces/VDC/pages/7268936056833/Mail+is+not+being+sent">Mail is not being sent</a>
+                        
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon content-type-page" title="Pagina">Pagina:</span>        </div>
+
+        <div class="details">
+                                    <a data-linked-resource-id="7268907516136" data-linked-resource-type="page" data-linked-resource-version="12" href="/wiki/spaces/VDC/pages/7268907516136/OrbServiceTest+uitleg">OrbServiceTest uitleg</a>
+                        
+                        
+                    </div>
+    </li>
+    </ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269000675332/7269000642570.png">image-20221027-105035.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7269000675332/7269000708110.png">image-20221027-105542.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

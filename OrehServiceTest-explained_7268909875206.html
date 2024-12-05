@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : OrehServiceTest explained</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="A2SP---Test-kentekens_36765697.html">A2SP - Test kentekens</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : OrehServiceTest explained
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Enrico Wesseling</span>, last modified on 09 dec., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>In this article i will explaine to you how to use OrehServiceTest</p><p>You do NOT have to run OrbServiceTest before this test.</p><h2 id="OrehServiceTestexplained-Instructions"> <img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="📘" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/>Instructions</h2><p style="margin-left: 30.0px;">In this project we are gonna test OrehServiceTest and see if the program works te way we want it to.</p><p style="margin-left: 30.0px;">This project works sepertly from OrbServiceTest. </p><p /><p style="margin-left: 30.0px;">First we are gonna look ad a few lines of code from OrehServiceTest, the lines of code we are gonna change are mention and show down below.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">        {
+            Reference = &quot;Test ORED&quot;,
+            LicensePlate = &quot;GTVD47&quot;,
+            ReportCode = &quot;4547&quot;,
+            //DuplicateCode = &quot;02&quot;,
+            //CharacterCheckLicenseplateRegistration = &quot;O&quot;,
+            LicensePlateDocumentNumber = &quot;1234512832&quot;,
+            AttendanceCode1 = &quot;1234&quot;,
+            AttendanceCode2 = &quot;56789&quot;,
+            LaminationCode1 = string.Empty,
+            LaminationCode2 = string.Empty,
+            Counter = new VehicleCounter
+            {</pre>
+</div></div><p>The 3 lines of underneath here we are gonna change.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">            LicensePlate = &quot;GTVD47&quot;,
+            ReportCode = &quot;4547&quot;,
+            LicensePlateDocumentNumber = &quot;1234512832&quot;,</pre>
+</div></div><p>The information you will need to give to these 3 lines are writen in an excel sheet you can vind at the bottom of this document.</p><p>you can only use “ORB + OREH + ED Kentekencard / tijdelijk documentnummer” (in the excel document).</p><p> The other one wont work in this test.</p><h2 id="OrehServiceTestexplained-howtomaketheprogramwork">how to make the program work</h2><ol><li><p>If you cleared and filled the lines of code, with the information from the excel sheet i mentioned, you can go ahead and run the test.</p></li></ol><p /><p>  2. If the test is runned and there is a green ball the test works and you have completed the test, if there is a </p><p><span class="legacy-color-text-inverse">f f </span>red ball the test failed.</p><p> </p><h2 id="OrehServiceTestexplained-possiblethingsthatcouldhavegonewrongifyouretestfailed">possible things that could have gone wrong if youre test failed</h2><p>If you had a red ball you can read this for an option to make it work.</p><p>Im gonna give a list to check if you did these things.</p><ol><li><p>Did you give the exacte same information to OrehServiceTest that you got from the excel sheet.</p></li><li><p>Did you check if there are some missing parts in the code where something should stand.</p></li><li><p>Did check a other licence plate if that worked.</p></li></ol><p> </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You WONT have to run OrbServiceTest before you run this test, it works on his own.</p></div></div><h2 id="OrehServiceTestexplained-Relatedarticles"> <img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="📋" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blauwe ster)"/>Related articles</h2><p>Test kentekens - VDC (excel sheet)</p><p class="media-group"><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="attachments/7268909875206/7268909875230.xlsx" data-nice-type="Microsoft Excel Spreadsheet" data-file-src="/wiki/download/attachments/7268909875206/Test%20kentekens%20-%20VDC.xlsx?version=1&amp;modificationDate=1639050526639&amp;cacheVersion=1&amp;api=v2" data-linked-resource-id="7268909875230" data-linked-resource-type="attachment" data-linked-resource-container-id="7268909875206" data-linked-resource-default-alias="Test kentekens - VDC.xlsx" data-mime-type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" data-has-thumbnail="true" data-linked-resource-version="1" data-media-id="43de267e-11e0-4c3a-9739-84ae45d23f49" data-media-type="file"><img src="attachments/thumbnails/7268909875206/7268909875230" height="250"/></a></span></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/7268909875206/7268909875230.xlsx">Test kentekens - VDC.xlsx</a> (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Get Customers</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Customer-APIs_1582170184.html">Customer APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Get Customers
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kavitha Thangappan</span>, last modified on 11 nov., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Customer who wants to fetch list of customer details filtered based on filter condition and sort by field sends request to this endpoint.</p><p>System fetches all customer details through customer repository based on the filter conditions provided SearchName, CustomerNmber, Name , Customer type - Private or Business and Customer category Buyer or Seller.</p><p>System returns the result as paged result.</p><p>For using this api, you need to be authorized.</p><p><strong>Authentication</strong></p><p>Please refer to this page. <a class="external-link" href="https://mplusgroup.atlassian.net/wiki/spaces/VDC/pages/edit-v2/1580859442?draftShareId=8afc2d6c-c754-4060-ae7b-bb7dc0f3bab2" rel="nofollow">Authentication APIs - VDC - Confluence (atlassian.net)</a></p><p><strong>Authorization</strong></p><p>This requires api permission <code>Pages_Vehicles</code></p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="3b77edab-5a50-49e9-b646-8066046d16f7" class="confluenceTable"><colgroup><col style="width: 256.0px;"/><col style="width: 424.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/Customer/GetCustomers</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">GET</span></p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Token <code>{token from Authorized User}</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><ul><li><p><code>Filter - string (optional)</code></p></li><li><p><code>Type- integer (optional)</code></p></li><li><p><code>Category- integer (optional)</code></p></li></ul></td></tr></tbody></table></div><p> </p><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence"></pre>
+</div></div><p><strong>Output</strong></p><p>if request is successful , api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">  &quot;result&quot;: {
+    &quot;totalCount&quot;: 2563,
+    &quot;items&quot;: [
+      {
+        &quot;customerNumber&quot;: &quot;P&quot;,
+        &quot;name&quot;: &quot;testkavi&quot;,
+        &quot;searchName&quot;: &quot;testkavi&quot;,
+        &quot;categories&quot;: [
+          0
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Alpen&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-10-11T16:36:40.25&quot;,
+        &quot;id&quot;: &quot;d888b2ef-4e00-4672-8543-08d98cc46ee4&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;042&quot;,
+        &quot;name&quot;: &quot;test&quot;,
+        &quot;searchName&quot;: &quot;test&quot;,
+        &quot;categories&quot;: [
+          0,
+          1
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: null,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-09-05T21:58:51.013&quot;,
+        &quot;id&quot;: &quot;073e0c5f-16a8-4aa6-9ca7-08d970a793b5&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;14625&quot;,
+        &quot;name&quot;: &quot;DevRepublictestBCA-OutsideEurope&quot;,
+        &quot;searchName&quot;: &quot;DevRepublictestBCA-OutsideEurope&quot;,
+        &quot;categories&quot;: [
+          0
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Vledder&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-07-08T15:24:52.68&quot;,
+        &quot;id&quot;: &quot;619315cd-b89d-4b8c-dc92-08d94213c4e1&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;119418&quot;,
+        &quot;name&quot;: &quot;A &amp; A Automobile&quot;,
+        &quot;searchName&quot;: &quot;&quot;,
+        &quot;categories&quot;: [
+          0,
+          1
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Berlin&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-06-30T14:29:52.097&quot;,
+        &quot;id&quot;: &quot;db386610-9d68-4b40-a5f4-ab8df9f8d9cf&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;14640&quot;,
+        &quot;name&quot;: &quot;Customer name&quot;,
+        &quot;searchName&quot;: &quot;Customer name&quot;,
+        &quot;categories&quot;: [
+          0
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Arnhem&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-04-13T13:37:27.063&quot;,
+        &quot;id&quot;: &quot;0a75a53a-646c-4b8f-4baf-08d8fe708395&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;alphanumericId&quot;,
+        &quot;name&quot;: &quot;Customer name&quot;,
+        &quot;searchName&quot;: &quot;name&quot;,
+        &quot;categories&quot;: [
+          0
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Arnhem&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-03-09T10:11:53.047&quot;,
+        &quot;id&quot;: &quot;5f192cef-efac-4c82-79a3-08d8e2db6121&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;test1234&quot;,
+        &quot;name&quot;: &quot;Stephan&quot;,
+        &quot;searchName&quot;: &quot;Zoek Stephan&quot;,
+        &quot;categories&quot;: [
+          0
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Alphen aan den Rijn&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2021-02-23T15:48:00.087&quot;,
+        &quot;id&quot;: &quot;e771525a-8f47-4631-cfc4-08d8d8093c63&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;116891&quot;,
+        &quot;name&quot;: &quot;SIA Ivo Auto&quot;,
+        &quot;searchName&quot;: &quot;&quot;,
+        &quot;categories&quot;: [
+          0,
+          1
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Skrundas nov.&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2020-12-15T10:48:37.05&quot;,
+        &quot;id&quot;: &quot;540bc575-7f06-4718-b08f-5ea29fdcbcb4&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;86983&quot;,
+        &quot;name&quot;: &quot;Kimon Plakonouris en Co. E.E.&quot;,
+        &quot;searchName&quot;: &quot;&quot;,
+        &quot;categories&quot;: [
+          0,
+          1
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;NEO IRAKLIO&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2020-08-14T14:44:48.62&quot;,
+        &quot;id&quot;: &quot;20a796e5-69ad-4379-9918-c2fac8765c8f&quot;
+      },
+      {
+        &quot;customerNumber&quot;: &quot;42413&quot;,
+        &quot;name&quot;: &quot;Airich Ditrich&quot;,
+        &quot;searchName&quot;: &quot;&quot;,
+        &quot;categories&quot;: [
+          0,
+          1
+        ],
+        &quot;type&quot;: 0,
+        &quot;city&quot;: &quot;Leer&quot;,
+        &quot;warningMessages&quot;: [
+          &quot;Document &#39;Identiteitsbewijs&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Volmacht&#39; is niet gevuld&quot;,
+          &quot;Document &#39;Kamer van Koophandel&#39; is niet gevuld&quot;,
+          &quot;Document BTW-check is niet gevuld&quot;,
+          &quot;Document &#39;Eerste klantcontact&#39; is niet gevuld&quot;
+        ],
+        &quot;creationTime&quot;: &quot;2020-08-13T08:35:38.253&quot;,
+        &quot;id&quot;: &quot;80ae3177-70f9-449d-aa31-546303dd12a5&quot;
+      }
+    ]
+  },
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null,
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}
+
+</pre>
+</div></div><p> </p><p>if request is unauthorized , api returns below response. Response status <code>403</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;Verplichte rechten zijn niet toegekend. Minimaal één van de volgende rechten dient toegekend te zijn: WA-verzekering&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: true,
+  &quot;__abp&quot;: true
+}
+
+
+</pre>
+</div></div><p> </p><p><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

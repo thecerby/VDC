@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Overview VDC Projects</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Overview VDC Projects
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Stephan Oomen</span> on 26 mrt., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="OverviewVDCProjects-RegistratieXpert">RegistratieXpert</h1><p>The &quot;RegistratieXpert&quot; (RX) is an application built in Silverlight. This is found in the &quot;RegistratieXpert&quot; repository.<br/>Solution can be found in src/RegistratieXpert/ExportXpert.sln.</p><p>Be sure to open this in Visual Studio 2015, VS2017 does not support Silverlight.<br/>Also, install the required components which can be found in tools/install</p><p>When deploying the Silverlight app, it must be built in &quot;Release&quot; mode.<br/>! do not disable the certificate because this is required for drivers to be loaded with Silverlight.</p><h2 id="OverviewVDCProjects-RXServices">RX Services</h2><p>RX uses WCF services communicate, this lives in <a class="external-link" href="http://ExportXpert.Web" rel="nofollow">ExportXpert.Web</a>. ExportXpertServices are the central APIs that is used by multiple applications, e.g.:</p><ol><li><p>RegistratieXpert</p></li><li><p>KentekencardReader</p></li><li><p>VWEServices a.k.a. BCA Services</p></li></ol><h3 id="OverviewVDCProjects-A2SPServices">A2SPServices</h3><p>This is used for retrieving CvO for an vehicle</p><h3 id="OverviewVDCProjects-CrmServices">CrmServices</h3><p>This is primary used in RegistratieXpert for the current subscriber and checking the VAT number.</p><h3 id="OverviewVDCProjects-DocumentService">DocumentService</h3><p>Used for CRUD'ing vehicle documents</p><h3 id="OverviewVDCProjects-EmailServices">EmailServices</h3><p>Used for sending prepared emails in the tblMailRequests</p><h3 id="OverviewVDCProjects-RdwServices">RdwServices</h3><p>Includes all RDW related services. This calls either the Portals or de A2SP XML API directly.<br/>And saves it in the database.<br/>This is based on the data configured in the tblAbonnee table.</p><h3 id="OverviewVDCProjects-VehicleService">VehicleService</h3><p>Able to retrieve and update the vehicle information in the database.</p><h2 id="OverviewVDCProjects-BCAServices-&gt;VWEServices">BCA Services -&gt; VWEServices</h2><p>The BCA Service is being updated to VWE webservice style. The service has been moved away from the RegistratieXpert Repository to it's own - VWEServices - repository. This service is now configured to deploy using the VSTS Build and release tooling.</p><h3 id="OverviewVDCProjects-Services">Services</h3><p>The VWE Services contains the following services:</p><ul><li><p>ATD (Aanvraag tijdelijk documentnummer)</p></li><li><p>CB (Controle bedrijfsvoorraad)</p></li><li><p>OKR (Online kilometer registratie)</p></li><li><p>ORB (Online registratie bedrijfsvoorraad)</p></li></ul><p>Before an vehicle can be sent to ORB, the vehicle needs to be created in RX first. This can be done by calling the OKR webservice, the DataXpert registration or by manually adding in inside RX.</p><p>Documentation per service is found in the repository.</p><h2 id="OverviewVDCProjects-DataConnectionWCF">DataConnectionWCF</h2><p>This service is the backend for the Portal applications, batchroutines and the RegistratieXpertVdaInterface.</p><ul><li><p>Polling for the next request found in tblPortalAanvraag</p></li><li><p>Belasting</p></li><li><p>Groene kaart registration</p></li><li><p>Voertuig export (Vies)</p></li></ul><h2 id="OverviewVDCProjects-KentekenCardReader">KentekenCardReader</h2><p>Used for reading kentekencards. run the application, wire up the USB cardreader (found in Stephan's desk) and login using RX credentials.</p><h2 id="OverviewVDCProjects-RDWportals">RDW portals</h2><p>Here are the RDW portals, currently OREH and ORED can be no longer used. ORB is used when using A2SP XML API.</p><h2 id="OverviewVDCProjects-VDC.Services">VDC.Services</h2><p>This is also called the DataXpert, it contains the possibility to request vehicle information and vehicle registration (combined). The ASR data check has been added here too.</p><p>The service has been moved away from the RegistratieXpert Repository to it's own - VDCServices - repository. This service is now configured to deploy using the VSTS Build and release tooling.</p><h2 id="OverviewVDCProjects-Settinguptheenvironment.">Setting up the environment.</h2><p>When you want to fully run the RX application on your local machine, you need to run the following applications in debug mode.</p><ul><li><p><a class="external-link" href="http://ExportXpert.Web" rel="nofollow">ExportXpert.Web</a></p></li><li><p>ExportXpertServices</p></li><li><p>DataConnectionWcf (if you want to go through the portal procedure)</p></li><li><p>The portal you want to test</p></li></ul><p>Also, make sure to connect the SQL database and install the required certificates.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

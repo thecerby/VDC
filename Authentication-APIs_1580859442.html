@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Authentication APIs</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Authentication APIs
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kavitha Thangappan</span> on 27 okt., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Customer who wants access to access application endpoints needs to be authenticated first.</p><p /><div class="table-wrap"><table data-layout="default" data-local-id="b243a3e4-ad8f-440e-a66f-a8966f74418f" class="confluenceTable"><colgroup><col style="width: 256.0px;"/><col style="width: 424.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/TokenAuth/Authenticate</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">POST</span></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><ul><li><p><code>userNameOrEmailAddress</code>- <code>string</code>- (required) </p></li><li><p><code>password</code>- <code>string</code>- (required) </p></li><li><p><code>twoFactorVerificationCode</code>- <code>string</code>- (required) </p></li><li><p><code>rememberClient</code>- <code>boolean</code>- (required) </p></li><li><p><code>twoFactorRememberClientToken</code>- <code>string</code>- (required) </p></li><li><p><code>singleSignIn</code>- <code>boolean</code>- (required) </p></li><li><p><code>returnUrl</code>- <code>string</code>- (required) </p></li><li><p><code>captchaResponse</code>- <code>string</code>- (required) </p></li></ul></td></tr></tbody></table></div><p /><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;userNameOrEmailAddress&quot;: &quot;string&quot;,
+  &quot;password&quot;: &quot;string&quot;,
+  &quot;twoFactorVerificationCode&quot;: &quot;string&quot;,
+  &quot;rememberClient&quot;: true,
+  &quot;twoFactorRememberClientToken&quot;: &quot;string&quot;,
+  &quot;singleSignIn&quot;: true,
+  &quot;returnUrl&quot;: &quot;string&quot;,
+  &quot;captchaResponse&quot;: &quot;string&quot;
+}</pre>
+</div></div><p><strong>Output</strong></p><p>if request is successful , api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;accessToken&quot;: &quot;string&quot;,
+  &quot;encryptedAccessToken&quot;: &quot;string&quot;,
+  &quot;expireInSeconds&quot;: 0,
+  &quot;shouldResetPassword&quot;: true,
+  &quot;passwordResetCode&quot;: &quot;string&quot;,
+  &quot;userId&quot;: 0,
+  &quot;requiresTwoFactorVerification&quot;: true,
+  &quot;twoFactorAuthProviders&quot;: [
+    &quot;string&quot;
+  ],
+  &quot;twoFactorRememberClientToken&quot;: &quot;string&quot;,
+  &quot;returnUrl&quot;: &quot;string&quot;,
+  &quot;refreshToken&quot;: &quot;string&quot;,
+  &quot;refreshTokenExpireInSeconds&quot;: 0
+}</pre>
+</div></div><p /><p /><p /><p /><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

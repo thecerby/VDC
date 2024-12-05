@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VDC : Get Customer</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">VDC</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="VDC-Index_36733011.html">VDC Index</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="RegXpert-2.0_1473839105.html">RegXpert 2.0</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="API-overview_1536491543.html">API overview</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Customer-APIs_1582170184.html">Customer APIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            VDC : Get Customer
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kavitha Thangappan</span>, last modified on 11 nov., 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Customer who wants to fetch existing customer details sends request to this endpoint.</p><p>System fetches customer details from database through customer repository based on customer id.</p><p>For using this api, you need to be authorized.</p><p><strong>Authentication</strong></p><p>Please refer to this page. <a class="external-link" href="https://mplusgroup.atlassian.net/wiki/spaces/VDC/pages/edit-v2/1580859442?draftShareId=8afc2d6c-c754-4060-ae7b-bb7dc0f3bab2" rel="nofollow">Authentication APIs - VDC - Confluence (atlassian.net)</a></p><p><strong>Authorization</strong></p><p>This requires api permission <code>Pages_Vehicles</code></p><p> </p><div class="table-wrap"><table data-layout="default" data-local-id="aeb6ae2a-14e2-41c4-8186-489cf3a36748" class="confluenceTable"><colgroup><col style="width: 256.0px;"/><col style="width: 424.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Property</strong></p></th><th class="confluenceTh"><p><strong>Value</strong></p></th></tr><tr><td class="confluenceTd"><p><strong>Endpoint</strong></p></td><td class="confluenceTd"><p>​/api​/services​/app​/Customer/GetCustomer</p></td></tr><tr><td class="confluenceTd"><p><strong>Method</strong></p></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">GET</span></p></td></tr><tr><td class="confluenceTd"><p><strong>Authorization</strong></p></td><td class="confluenceTd"><p>Token <code>{token from Authorized User}</code></p></td></tr><tr><td class="confluenceTd"><p><strong>Headers</strong></p></td><td class="confluenceTd"><p>Accept: application/json </p><p>Content-Type: application/json </p></td></tr><tr><td class="confluenceTd"><p><strong>Field Parameters</strong></p></td><td class="confluenceTd"><ul><li><p><code>CustomerId</code>- <code>Guid</code> - (required) </p></li></ul></td></tr></tbody></table></div><p> </p><p><strong>Input</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">CustomerId  7A3292B6-ABBD-4AA4-8B57-0017C6D24C72</pre>
+</div></div><p><strong>Output</strong></p><p>if request is successful , api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: {
+    &quot;customer&quot;: {
+      &quot;customerNumber&quot;: &quot;46841&quot;,
+      &quot;type&quot;: 0,
+      &quot;name&quot;: &quot;Autohaus MCB GmbH&quot;,
+      &quot;searchName&quot;: &quot;MCBBRA&quot;,
+      &quot;vatId&quot;: &quot;DE237593728&quot;,
+      &quot;coCNummer&quot;: null,
+      &quot;address&quot;: {
+        &quot;street&quot;: &quot;Hansestrasse &quot;,
+        &quot;houseNumber&quot;: &quot;17&quot;,
+        &quot;houseNumberAddition&quot;: &quot;&quot;,
+        &quot;postalCode&quot;: &quot;38112&quot;,
+        &quot;city&quot;: &quot;BRAUNSCHWEIG&quot;,
+        &quot;countryCode&quot;: &quot;DEU&quot;
+      },
+      &quot;contactAddress&quot;: {
+        &quot;street&quot;: null,
+        &quot;houseNumber&quot;: null,
+        &quot;houseNumberAddition&quot;: null,
+        &quot;postalCode&quot;: null,
+        &quot;city&quot;: null,
+        &quot;countryCode&quot;: null
+      },
+      &quot;contact&quot;: {
+        &quot;email&quot;: &quot;autohausmcb@gmail.com&quot;,
+        &quot;website&quot;: null,
+        &quot;phoneNumbers&quot;: [
+          {
+            &quot;type&quot;: 0,
+            &quot;number&quot;: &quot;004953140202069&quot;
+          },
+          {
+            &quot;type&quot;: 1,
+            &quot;number&quot;: &quot;004953140202069&quot;
+          }
+        ]
+      },
+      &quot;contacts&quot;: [
+        {
+          &quot;gender&quot;: null,
+          &quot;initial&quot;: &quot;C.M.&quot;,
+          &quot;firstName&quot;: &quot;Cornelius Marius&quot;,
+          &quot;middleName&quot;: null,
+          &quot;lastName&quot;: &quot;Böhmer&quot;,
+          &quot;birthDate&quot;: &quot;1980-08-07T00:00:00&quot;,
+          &quot;birthPlace&quot;: &quot;Temesschburg&quot;,
+          &quot;birthCountryCode&quot;: &quot;DEU&quot;,
+          &quot;function&quot;: null,
+          &quot;credentialType&quot;: 3,
+          &quot;identificationNumber&quot;: &quot;137831347&quot;,
+          &quot;issueDate&quot;: &quot;2010-06-18T00:00:00&quot;,
+          &quot;deliveryPlace&quot;: &quot;Braunschweig&quot;,
+          &quot;issueCountryCode&quot;: &quot;DEU&quot;,
+          &quot;dateValidUntil&quot;: &quot;2020-06-18T00:00:00&quot;,
+          &quot;identificationDocument&quot;: &quot;137831347\\Legitimatie-137831347(056c7406-224c-4905-b858-b022b2d75f6d).Pdf&quot;,
+          &quot;id&quot;: &quot;af081256-6f80-40ff-9d47-32f875e647ef&quot;
+        }
+      ],
+      &quot;id&quot;: &quot;7a3292b6-abbd-4aa4-8b57-0017c6d24c72&quot;
+    }
+  },
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null,
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}
+
+
+
+</pre>
+</div></div><p> </p><p>if request is unauthorized , api returns below response. Response status <code>403</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: null,
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: false,
+  &quot;error&quot;: {
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;Verplichte rechten zijn niet toegekend. Minimaal één van de volgende rechten dient toegekend te zijn: WA-verzekering&quot;,
+    &quot;details&quot;: null,
+    &quot;validationErrors&quot;: null
+  },
+  &quot;unAuthorizedRequest&quot;: true,
+  &quot;__abp&quot;: true
+}
+
+
+</pre>
+</div></div><p> </p><p>if input request is not valid, api returns below response. Response status <code>200</code></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: csharp; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;result&quot;: {
+    &quot;customer&quot;: null
+  },
+  &quot;targetUrl&quot;: null,
+  &quot;success&quot;: true,
+  &quot;error&quot;: null,
+  &quot;unAuthorizedRequest&quot;: false,
+  &quot;__abp&quot;: true
+}</pre>
+</div></div><p><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on 30 okt., 2024 22:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
